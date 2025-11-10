@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoebe Dawson Foundation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .header-content {
+            max-width: 900px;
+            padding: 40px 20px;
+            animation: fadeIn 1.2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            color: #F4C430;
+            font-weight: 700;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 56px;
+            margin-bottom: 15px;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 26px;
+            font-weight: 300;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(244, 196, 48, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        nav li {
+            flex: 1;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 20px 30px;
+            display: block;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 30px;
+        }
+
+        section {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 42px;
+            color: #F4C430;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #F4C430, transparent);
+        }
+
+        .mission {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 80px 30px;
+        }
+
+        .mission-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 20px;
+            line-height: 1.9;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .mission-content p {
+            margin-bottom: 25px;
+        }
+
+        .objectives {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+        .objective-card {
+            background: white;
+            padding: 40px 35px;
+            border-radius: 12px;
+            border-top: 4px solid #F4C430;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .objective-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(244, 196, 48, 0.15);
+        }
+
+        .objective-card h3 {
+            color: #2c3e50;
+            margin-bottom: 18px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .objective-card p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #5a6c7d;
+        }
+
+        /* Story Section */
+        .story {
+            background: white;
+        }
+
+        .story-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-image {
+            flex: 0 0 350px;
+            height: 450px;
+            background: linear-gradient(135deg, #FFE8A3 0%, #F4C430 50%, #FFA500 100%);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(244, 196, 48, 0.3);
+        }
+
+        .story-text {
+            flex: 1;
+            font-size: 17px;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        .story-text p {
+            margin-bottom: 22px;
+        }
+
+        /* Board Section */
+        .board {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 80px 30px;
+        }
+
+        .board-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .board-member {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .board-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-photo {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #FFE8A3 0%, #F4C430 50%, #FFA500 100%);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            box-shadow: 0 8px 30px rgba(244, 196, 48, 0.25);
+        }
+
+        .member-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .member-title {
+            color: #7f8c8d;
+            font-weight: 400;
+            font-size: 15px;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background: linear-gradient(135deg, #F4C430 0%, #FFA500 100%);
+            color: white;
+            padding: 90px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-section:before {
+            content: '"';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 200px;
+            opacity: 0.1;
+            font-family: Georgia, serif;
+        }
+
+        .quote {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 28px;
+            font-weight: 300;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-author {
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            background: white;
+        }
+
+        .contact-info {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .contact-info p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .contact-info h3 {
+            font-weight: 600;
+        }
+
+        .donate-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #F4C430 0%, #FFA500 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 17px;
+            font-weight: 500;
+            margin-top: 40px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(244, 196, 48, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .donate-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(244, 196, 48, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 30px;
+            font-weight: 300;
+        }
+
+        footer p {
+            margin: 5px 0;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .tagline {
+                font-size: 20px;
+            }
+
+            .story-content {
+                flex-direction: column;
+            }
+
+            .story-image {
+                flex: none;
+                width: 100%;
+                height: 350px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                padding: 15px 20px;
+                font-size: 13px;
+            }
+
+            .container {
+                padding: 60px 20px;
+            }
+
+            .quote {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">PDF</div>
+            <h1>Phoebe Dawson Foundation</h1>
+            <p class="tagline">Our Sunshine Girl</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#contact">Get Involved</a></li>
+            <li><a href="#mission">Our Mission</a></li>
+            <li><a href="#story">Phoebe's Story</a></li>
+            <li><a href="#board">Board of Directors</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get Involved</h2>
+            <div class="contact-info">
+                <p>Your support helps us continue Phoebe's legacy of compassion and care. As we prepare for the foundation's official launch, we're already looking forward to raising funds for various programs that reflect our sunshine girl's spirit.</p>
+                
+                <h3 style="color: #F4C430; margin: 30px 0 20px;">Upcoming Events - 2026</h3>
+                <p><strong>February 2026:</strong> Join Team Phoebe in the <strong>Sun Run</strong> and <strong>Cole Classic</strong> ocean swim. Our girl would love knowing we're getting active together while supporting her foundation.</p>
+                <p><strong>June 2026:</strong> <strong>Gala in Phoebe's Honour</strong> - An evening of celebration, community, and fundraising to officially launch the foundation's programs.</p>
+                
+                <p style="margin-top: 30px;"><strong>Email:</strong> info@phoebedawsonfoundation.org</p>
+                <p><strong>Phone:</strong> [Phone Number]</p>
+                <a href="#" class="donate-button">Support Our Mission</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <h2>What We Do</h2>
+            <div class="mission-content">
+                <p>The Phoebe Dawson Foundation is dedicated to supporting health, wellness, and community programs in memory of Phoebe Dawson, who tragically lost her life in February 2024. Through compassionate outreach and meaningful initiatives, we strive to create lasting positive change in the communities Phoebe loved and served.</p>
+                <p>Our foundation works to ensure that Phoebe's legacy of kindness, dedication to caring for others, and her radiant spirit continues to touch lives and inspire others to make a difference. As we often ask ourselves: What Would Phoebe Do?</p>
+            </div>
+
+            <div class="objectives">
+                <div class="objective-card">
+                    <h3>Health & Wellness Programs</h3>
+                    <p>Supporting initiatives that promote health, wellness, and community care, reflecting Phoebe's lifelong dedication to nursing and caring for others in her community.</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Community Connection</h3>
+                    <p>Fostering the same sense of community and connection that Phoebe created wherever she went, bringing people together through active living and shared experiences.</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Continuing Her Light</h3>
+                    <p>Asking ourselves "What Would Phoebe Do?" as we work to spread the same joy, compassion, and positive energy that our ray of sunshine brought to everyone she met.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story" id="story">
+        <div class="container">
+            <h2>Phoebe's Story</h2>
+            <div class="story-content">
+                <div class="story-image"></div>
+                <div class="story-text">
+                    <p>Phoebe Dawson was a ray of sunshine—a beloved member of Sydney's North Shore and Northern Beaches community whose warmth, compassion, and genuine care for others touched everyone who knew her. Her infectious smile and kind spirit made her impossible to forget.</p>
+                    
+                    <p>Phoebe dedicated her career to caring for others as a nurse, first as an Oncology Nurse at Royal North Shore Hospital, where she provided comfort and hope to patients during their most vulnerable moments. She later brought that same dedication to the local community as a nurse at South Steyne Medical Centre in Manly, where she became a familiar and cherished face to countless locals.</p>
+                    
+                    <p>During the COVID-19 pandemic, if there were any Northern Beaches locals who hadn't met our girl yet, they certainly did when Phoebe served as one of the main nurses administering COVID tests and vaccinations. Through it all, she brought her characteristic warmth and reassurance to everyone she cared for.</p>
+                    
+                    <p>Tragically, Phoebe lost her life in February 2024 while driving in a storm. The loss of our sunshine girl has left a void in the hearts of all who knew her, but her legacy of compassion, service, and joy continues to inspire us.</p>
+                    
+                    <p>The Phoebe Dawson Foundation was established by her husband Tim and their family to ensure that Phoebe's radiant spirit continues to make a difference. In everything we do, we ask ourselves: What Would Phoebe Do? (WWPD). The answer guides us to spread kindness, support our community, and live life with the same generous heart that defined Phoebe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <div class="quote-section">
+        <div class="quote">
+            "Our sunshine girl brought light to every life she touched. Through this foundation, we carry forward her legacy of compassion, asking ourselves each day: What Would Phoebe Do?"
+            <div class="quote-author">— The Dawson Family</div>
+        </div>
+    </div>
+
+    <!-- Board Section -->
+    <section class="board" id="board">
+        <h2>Board of Directors</h2>
+        <div class="board-members">
+            <div class="board-member">
+                <div class="member-photo"></div>
+                <div class="member-name">Tim Dawson</div>
+                <div class="member-title">Founder & Chairman</div>
+            </div>
+            <div class="board-member">
+                <div class="member-photo"></div>
+                <div class="member-name">[Name]</div>
+                <div class="member-title">Director</div>
+            </div>
+            <div class="board-member">
+                <div class="member-photo"></div>
+                <div class="member-name">[Name]</div>
+                <div class="member-title">Secretary</div>
+            </div>
+            <div class="board-member">
+                <div class="member-photo"></div>
+                <div class="member-name">[Name]</div>
+                <div class="member-title">Treasurer</div>
+            </div>
+        </div>
+
+        <div class="container" style="margin-top: 60px; text-align: center;">
+            <h3 style="color: #F4C430; margin-bottom: 20px;">Founding Committee</h3>
+            <p style="font-size: 16px; color: #666;">
+                [Name] • [Name] • [Name] • [Name] • [Name] • [Name]
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Phoebe Dawson Foundation. All rights reserved.</p>
+        <p>ABN: [ABN Number] | Registered Charity</p>
+    </footer>
+</body>
+</html>
