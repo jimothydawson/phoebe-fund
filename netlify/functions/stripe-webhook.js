@@ -44,8 +44,15 @@ exports.handler = async (event) => {
     };
   }
 
-  const sig = event.headers['stripe-signature'];
+  // Get signature from headers (try both cases)
+  const sig = event.headers['stripe-signature'] || event.headers['Stripe-Signature'];
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+  // Debug logging
+  console.log('Headers:', JSON.stringify(event.headers));
+  console.log('Webhook secret exists:', !!webhookSecret);
+  console.log('Signature exists:', !!sig);
+  console.log('Body is base64:', event.isBase64Encoded);
 
   let stripeEvent;
 
@@ -61,6 +68,8 @@ exports.handler = async (event) => {
     );
   } catch (err) {
     console.error('Webhook signature verification failed:', err.message);
+    console.error('Webhook secret (first 10 chars):', webhookSecret?.substring(0, 10));
+    console.error('Signature (first 20 chars):', sig?.substring(0, 20));
     return {
       statusCode: 400,
       body: JSON.stringify({ error: `Webhook Error: ${err.message}` })
