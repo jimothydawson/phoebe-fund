@@ -625,7 +625,9 @@
                         <select id="sex" name="sex" class="form-input" required>
                             <option value="">Select style</option>
                             <option value="Men's">Men's (Budgie Smugglers)</option>
-                            <option value="Women's">Women's (Smugglettes)</option>
+                            <option value="Women's">Women's (Smugglettes - One Piece)</option>
+                            <option value="Boys'">Boys' (Budgie Smugglers)</option>
+                            <option value="Girls'">Girls' (One Piece)</option>
                         </select>
                         <span class="error-message" id="sexError">Please select a style</span>
                     </div>
@@ -634,11 +636,8 @@
                         <label class="form-label" for="size">
                             Size <span class="required">*</span>
                         </label>
-                        <select id="size" name="size" class="form-input" required>
-                            <option value="">Select size</option>
-                            <option value="S">Small</option>
-                            <option value="M">Medium</option>
-                            <option value="L">Large</option>
+                        <select id="size" name="size" class="form-input" required disabled>
+                            <option value="">Select style first</option>
                         </select>
                         <span class="error-message" id="sizeError">Please select a size</span>
                     </div>
@@ -767,6 +766,83 @@
     </footer>
 
     <script>
+        // Size options for each style
+        const sizeOptions = {
+            "Men's": [
+                { value: 'XS (28)', label: 'XS - 28" (70-75cm waist)' },
+                { value: 'S (30)', label: 'S - 30" (75-80cm waist)' },
+                { value: 'M (32)', label: 'M - 32" (80-85cm waist)' },
+                { value: 'L (34)', label: 'L - 34" (85-90cm waist)' },
+                { value: 'XL (36)', label: 'XL - 36" (90-95cm waist)' },
+                { value: 'XXL (38)', label: 'XXL - 38" (95-100cm waist)' },
+                { value: 'XXXL (40)', label: 'XXXL - 40" (100-105cm waist)' }
+            ],
+            "Women's": [
+                { value: '06', label: 'Size 06 (74-75cm bust, 55-60cm waist)' },
+                { value: '08', label: 'Size 08 (79-83cm bust, 61-65cm waist)' },
+                { value: '10', label: 'Size 10 (82-88cm bust, 66-70cm waist)' },
+                { value: '12', label: 'Size 12 (89-93cm bust, 71-75cm waist)' },
+                { value: '14', label: 'Size 14 (94-98cm bust, 76-80cm waist)' },
+                { value: '16', label: 'Size 16 (99-103cm bust, 81-85cm waist)' },
+                { value: '18', label: 'Size 18 (104-108cm bust, 86-90cm waist)' },
+                { value: '20', label: 'Size 20 (109-113cm bust, 91-95cm waist)' }
+            ],
+            "Boys'": [
+                { value: '0 (6-12 mths)', label: '0 - 6-12 months (50-52cm waist)' },
+                { value: '1 (12-18 mths)', label: '1 - 12-18 months (52-54cm waist)' },
+                { value: '2 (18-24 mths)', label: '2 - 18-24 months (53-56cm waist)' },
+                { value: '4 (4 yrs)', label: '4 - 4 years (56-58cm waist)' },
+                { value: '6 (6 yrs)', label: '6 - 6 years (58-60cm waist)' },
+                { value: '8 (8 yrs)', label: '8 - 8 years (60-64cm waist)' },
+                { value: '10 (10 yrs)', label: '10 - 10 years (64-68cm waist)' },
+                { value: '12 (12 yrs)', label: '12 - 12 years (68-72cm waist)' }
+            ],
+            "Girls'": [
+                { value: '0 (6-12 mths)', label: '0 - 6-12 months (48-50cm chest)' },
+                { value: '1 (12-18 mths)', label: '1 - 12-18 months (51-53cm chest)' },
+                { value: '2 (24 mths)', label: '2 - 24 months (54-56cm chest)' },
+                { value: '4 (4 yrs)', label: '4 - 4 years (57-60cm chest)' },
+                { value: '6 (6 yrs)', label: '6 - 6 years (61-64cm chest)' },
+                { value: '8 (8 yrs)', label: '8 - 8 years (65-68cm chest)' },
+                { value: '10 (10 yrs)', label: '10 - 10 years (74cm chest)' }
+            ]
+        };
+
+        // Update size options when style changes
+        document.getElementById('sex').addEventListener('change', function() {
+            const style = this.value;
+            const sizeSelect = document.getElementById('size');
+
+            // Clear existing options
+            sizeSelect.innerHTML = '';
+
+            if (style && sizeOptions[style]) {
+                // Enable and populate size dropdown
+                sizeSelect.disabled = false;
+
+                // Add placeholder
+                const placeholderOption = document.createElement('option');
+                placeholderOption.value = '';
+                placeholderOption.textContent = 'Select size';
+                sizeSelect.appendChild(placeholderOption);
+
+                // Add size options
+                sizeOptions[style].forEach(size => {
+                    const option = document.createElement('option');
+                    option.value = size.value;
+                    option.textContent = size.label;
+                    sizeSelect.appendChild(option);
+                });
+            } else {
+                // Disable and show placeholder
+                sizeSelect.disabled = true;
+                const placeholderOption = document.createElement('option');
+                placeholderOption.value = '';
+                placeholderOption.textContent = 'Select style first';
+                sizeSelect.appendChild(placeholderOption);
+            }
+        });
+
         // Form validation and Stripe checkout
         document.getElementById('orderForm').addEventListener('submit', async function(e) {
             e.preventDefault();
