@@ -43,3 +43,9 @@ Thumbs.db
 # Misc
 .cache/
 
+# Netlify
+.netlify/
+netlify/functions/node_modules/
+
+# Local Netlify CLI
+.netlify-state.json

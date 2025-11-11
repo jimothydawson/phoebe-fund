@@ -358,6 +358,136 @@
             box-shadow: 0 10px 35px rgba(244, 196, 48, 0.4);
         }
 
+        /* Order Section */
+        .order-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 80px 30px;
+        }
+
+        .order-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .order-intro {
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        .order-form {
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .required {
+            color: #F4C430;
+        }
+
+        .form-input {
+            padding: 15px 18px;
+            font-size: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #F4C430;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, #F4C430 0%, #FFA500 100%);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 17px;
+            font-weight: 500;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(244, 196, 48, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-button:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(244, 196, 48, 0.4);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .price-info {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 600;
+            color: #F4C430;
+            margin: 30px 0 20px;
+        }
+
+        .wwpd-badge {
+            background: linear-gradient(135deg, #F4C430 0%, #FFA500 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
         /* Footer */
         footer {
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
@@ -412,6 +542,15 @@
             .quote {
                 font-size: 22px;
             }
+
+            .order-form {
+                padding: 30px 20px;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
         }
     </style>
 </head>
@@ -428,6 +567,7 @@
     <!-- Navigation -->
     <nav>
         <ul>
+            <li><a href="#order">WWPD Budgies</a></li>
             <li><a href="#contact">Get Involved</a></li>
             <li><a href="#mission">Our Mission</a></li>
             <li><a href="#story">Phoebe's Story</a></li>
@@ -435,17 +575,95 @@
         </ul>
     </nav>
 
+    <!-- Order Section -->
+    <section class="order-section" id="order">
+        <div class="order-container">
+            <h2>WWPD Budgie Smugglers</h2>
+            <div style="text-align: center;">
+                <span class="wwpd-badge">What Would Phoebe Do?</span>
+            </div>
+            <div class="order-intro">
+                <p>Order your exclusive WWPD budgie smugglers (men's) or smugglettes (women's one-pieces)! Perfect for showing your support at the Sun Run and Cole Classic in February 2026. Proceeds go directly to the foundation.</p>
+            </div>
+
+            <form id="orderForm" class="order-form">
+                <div class="form-group">
+                    <label class="form-label" for="name">
+                        Full Name <span class="required">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="form-input"
+                        required
+                        placeholder="Enter your full name"
+                    >
+                    <span class="error-message" id="nameError">Please enter your name</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">
+                        Email <span class="required">*</span>
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-input"
+                        required
+                        placeholder="your.email@example.com"
+                    >
+                    <span class="error-message" id="emailError">Please enter a valid email</span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="sex">
+                            Style <span class="required">*</span>
+                        </label>
+                        <select id="sex" name="sex" class="form-input" required>
+                            <option value="">Select style</option>
+                            <option value="Men's">Men's (Budgie Smugglers)</option>
+                            <option value="Women's">Women's (Smugglettes)</option>
+                        </select>
+                        <span class="error-message" id="sexError">Please select a style</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="size">
+                            Size <span class="required">*</span>
+                        </label>
+                        <select id="size" name="size" class="form-input" required>
+                            <option value="">Select size</option>
+                            <option value="S">Small</option>
+                            <option value="M">Medium</option>
+                            <option value="L">Large</option>
+                        </select>
+                        <span class="error-message" id="sizeError">Please select a size</span>
+                    </div>
+                </div>
+
+                <div class="price-info">$50 AUD</div>
+
+                <button type="submit" class="submit-button" id="submitButton">
+                    Proceed to Payment
+                </button>
+            </form>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <h2>Get Involved</h2>
             <div class="contact-info">
                 <p>Your support helps us continue Phoebe's legacy of compassion and care. As we prepare for the foundation's official launch, we're already looking forward to raising funds for various programs that reflect our sunshine girl's spirit.</p>
-                
+
                 <h3 style="color: #F4C430; margin: 30px 0 20px;">Upcoming Events - 2026</h3>
                 <p><strong>February 2026:</strong> Join Team Phoebe in the <strong>Sun Run</strong> and <strong>Cole Classic</strong> ocean swim. Our girl would love knowing we're getting active together while supporting her foundation.</p>
                 <p><strong>June 2026:</strong> <strong>Gala in Phoebe's Honour</strong> - An evening of celebration, community, and fundraising to officially launch the foundation's programs.</p>
-                
+
                 <p style="margin-top: 30px;"><strong>Email:</strong> info@phoebedawsonfoundation.org</p>
                 <p><strong>Phone:</strong> [Phone Number]</p>
                 <a href="#" class="donate-button">Support Our Mission</a>
@@ -547,5 +765,83 @@
         <p>&copy; 2024 Phoebe Dawson Foundation. All rights reserved.</p>
         <p>ABN: [ABN Number] | Registered Charity</p>
     </footer>
+
+    <script>
+        // Form validation and Stripe checkout
+        document.getElementById('orderForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const sex = document.getElementById('sex').value;
+            const size = document.getElementById('size').value;
+
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
+
+            // Validate form
+            let isValid = true;
+
+            if (!name) {
+                document.getElementById('nameError').classList.add('show');
+                isValid = false;
+            }
+
+            if (!email || !email.includes('@')) {
+                document.getElementById('emailError').classList.add('show');
+                isValid = false;
+            }
+
+            if (!sex) {
+                document.getElementById('sexError').classList.add('show');
+                isValid = false;
+            }
+
+            if (!size) {
+                document.getElementById('sizeError').classList.add('show');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                return;
+            }
+
+            // Disable submit button
+            const submitButton = document.getElementById('submitButton');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Processing...';
+
+            try {
+                // Call Netlify Function to create Stripe Checkout session
+                const response = await fetch('/.netlify/functions/create-checkout-session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        sex,
+                        size
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.url) {
+                    // Redirect to Stripe Checkout
+                    window.location.href = data.url;
+                } else {
+                    throw new Error(data.error || 'Failed to create checkout session');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error processing your order. Please try again.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Proceed to Payment';
+            }
+        });
+    </script>
 </body>
 </html>
