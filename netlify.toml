@@ -1,6 +1,7 @@
 [build]
   functions = "netlify/functions"
   publish = "."
+  environment = { SECRETS_SCAN_OMIT_KEYS = "AIRTABLE_TABLE_NAME,BUDGIE_PRICE" }
 
 [functions]
   node_bundler = "esbuild"
