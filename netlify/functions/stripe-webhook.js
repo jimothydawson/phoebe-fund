@@ -50,9 +50,12 @@ exports.handler = async (event) => {
   let stripeEvent;
 
   try {
+    // Get raw body - Netlify provides it as a string or base64
+    const body = event.isBase64Encoded ? Buffer.from(event.body, 'base64').toString('utf8') : event.body;
+
     // Verify webhook signature
     stripeEvent = stripe.webhooks.constructEvent(
-      event.body,
+      body,
       sig,
       webhookSecret
     );
