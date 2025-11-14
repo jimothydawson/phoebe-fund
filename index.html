@@ -476,6 +476,45 @@
             margin: 30px 0 20px;
         }
 
+        #itemsList {
+            margin: 30px 0;
+        }
+
+        .items-list-ordered {
+            list-style: none;
+            counter-reset: item-counter;
+            padding: 0;
+            margin: 0;
+        }
+
+        .item-entry {
+            counter-increment: item-counter;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #F4C430;
+        }
+
+        .item-entry::before {
+            content: counter(item-counter) ". ";
+            font-weight: 600;
+            color: #F4C430;
+            font-size: 18px;
+            margin-right: 8px;
+        }
+
+        .item-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .item-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
         .wwpd-badge {
             background: linear-gradient(135deg, #F4C430 0%, #FFA500 100%);
             color: white;
@@ -617,33 +656,27 @@
                     <span class="error-message" id="emailError">Please enter a valid email</span>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label" for="sex">
-                            Style <span class="required">*</span>
-                        </label>
-                        <select id="sex" name="sex" class="form-input" required>
-                            <option value="">Select style</option>
-                            <option value="Men's">Men's (Budgie Smugglers)</option>
-                            <option value="Women's">Women's (Smugglettes - One Piece)</option>
-                            <option value="Boys'">Boys' (Budgie Smugglers)</option>
-                            <option value="Girls'">Girls' (One Piece)</option>
-                        </select>
-                        <span class="error-message" id="sexError">Please select a style</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="size">
-                            Size <span class="required">*</span>
-                        </label>
-                        <select id="size" name="size" class="form-input" required disabled>
-                            <option value="">Select style first</option>
-                        </select>
-                        <span class="error-message" id="sizeError">Please select a size</span>
-                    </div>
+                <div class="form-group">
+                    <label class="form-label" for="quantity">
+                        Quantity <span class="required">*</span>
+                    </label>
+                    <input
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        class="form-input"
+                        required
+                        min="1"
+                        max="10"
+                        value="1"
+                        placeholder="1"
+                    >
+                    <span class="error-message" id="quantityError">Please enter a quantity between 1 and 10</span>
                 </div>
 
-                <div class="price-info">$50 AUD</div>
+                <div id="itemsList"></div>
+
+                <div class="price-info" id="priceInfo">$50 AUD</div>
 
                 <button type="submit" class="submit-button" id="submitButton">
                     Proceed to Payment
@@ -766,6 +799,8 @@
     </footer>
 
     <script>
+        const PRICE_PER_ITEM = 50;
+
         // Size options for each style
         const sizeOptions = {
             "Men's": [
@@ -808,40 +843,94 @@
             ]
         };
 
-        // Update size options when style changes
-        document.getElementById('sex').addEventListener('change', function() {
-            const style = this.value;
-            const sizeSelect = document.getElementById('size');
-
-            // Clear existing options
-            sizeSelect.innerHTML = '';
-
+        // Create size select options HTML
+        function createSizeOptions(style) {
+            let html = '<option value="">Select size</option>';
             if (style && sizeOptions[style]) {
-                // Enable and populate size dropdown
-                sizeSelect.disabled = false;
-
-                // Add placeholder
-                const placeholderOption = document.createElement('option');
-                placeholderOption.value = '';
-                placeholderOption.textContent = 'Select size';
-                sizeSelect.appendChild(placeholderOption);
-
-                // Add size options
                 sizeOptions[style].forEach(size => {
-                    const option = document.createElement('option');
-                    option.value = size.value;
-                    option.textContent = size.label;
-                    sizeSelect.appendChild(option);
+                    html += `<option value="${size.value}">${size.label}</option>`;
                 });
-            } else {
-                // Disable and show placeholder
-                sizeSelect.disabled = true;
-                const placeholderOption = document.createElement('option');
-                placeholderOption.value = '';
-                placeholderOption.textContent = 'Select style first';
-                sizeSelect.appendChild(placeholderOption);
             }
+            return html;
+        }
+
+        // Generate item inputs based on quantity
+        function generateItemInputs(quantity) {
+            const itemsList = document.getElementById('itemsList');
+
+            if (quantity < 1) {
+                itemsList.innerHTML = '';
+                return;
+            }
+
+            let html = '<ol class="items-list-ordered">';
+
+            for (let i = 0; i < quantity; i++) {
+                html += `
+                    <li class="item-entry">
+                        <div class="item-row">
+                            <div class="form-group">
+                                <label class="form-label" for="style${i}">
+                                    Style <span class="required">*</span>
+                                </label>
+                                <select id="style${i}" name="style${i}" class="form-input item-style" data-index="${i}" required>
+                                    <option value="">Select style</option>
+                                    <option value="Men's">Men's (Budgie Smugglers)</option>
+                                    <option value="Women's">Women's (Smugglettes - One Piece)</option>
+                                    <option value="Boys'">Boys' (Budgie Smugglers)</option>
+                                    <option value="Girls'">Girls' (One Piece)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="size${i}">
+                                    Size <span class="required">*</span>
+                                </label>
+                                <select id="size${i}" name="size${i}" class="form-input item-size" data-index="${i}" required disabled>
+                                    <option value="">Select style first</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                `;
+            }
+
+            html += '</ol>';
+            itemsList.innerHTML = html;
+
+            // Add event listeners to all style selects
+            document.querySelectorAll('.item-style').forEach(styleSelect => {
+                styleSelect.addEventListener('change', function() {
+                    const index = this.dataset.index;
+                    const sizeSelect = document.getElementById(`size${index}`);
+                    const style = this.value;
+
+                    if (style && sizeOptions[style]) {
+                        sizeSelect.disabled = false;
+                        sizeSelect.innerHTML = createSizeOptions(style);
+                    } else {
+                        sizeSelect.disabled = true;
+                        sizeSelect.innerHTML = '<option value="">Select style first</option>';
+                    }
+                });
+            });
+        }
+
+        // Update total price
+        function updatePrice() {
+            const quantity = parseInt(document.getElementById('quantity').value) || 1;
+            const total = PRICE_PER_ITEM * quantity;
+            document.getElementById('priceInfo').textContent = `$${total} AUD`;
+        }
+
+        // Quantity change handler
+        document.getElementById('quantity').addEventListener('input', function() {
+            const quantity = parseInt(this.value) || 1;
+            generateItemInputs(quantity);
+            updatePrice();
         });
+
+        // Initialize with 1 item
+        generateItemInputs(1);
 
         // Form validation and Stripe checkout
         document.getElementById('orderForm').addEventListener('submit', async function(e) {
@@ -850,13 +939,12 @@
             // Get form values
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
-            const sex = document.getElementById('sex').value;
-            const size = document.getElementById('size').value;
+            const quantity = parseInt(document.getElementById('quantity').value) || 1;
 
             // Reset error messages
             document.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
 
-            // Validate form
+            // Validate basic fields
             let isValid = true;
 
             if (!name) {
@@ -869,14 +957,24 @@
                 isValid = false;
             }
 
-            if (!sex) {
-                document.getElementById('sexError').classList.add('show');
+            if (quantity < 1 || quantity > 10) {
+                document.getElementById('quantityError').classList.add('show');
                 isValid = false;
             }
 
-            if (!size) {
-                document.getElementById('sizeError').classList.add('show');
-                isValid = false;
+            // Collect all items
+            const items = [];
+            for (let i = 0; i < quantity; i++) {
+                const style = document.getElementById(`style${i}`).value;
+                const size = document.getElementById(`size${i}`).value;
+
+                if (!style || !size) {
+                    isValid = false;
+                    alert(`Please select both style and size for item ${i + 1}`);
+                    break;
+                }
+
+                items.push({ style, size });
             }
 
             if (!isValid) {
@@ -898,8 +996,7 @@
                     body: JSON.stringify({
                         name,
                         email,
-                        sex,
-                        size
+                        items
                     })
                 });
 

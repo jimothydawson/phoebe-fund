@@ -10,44 +10,62 @@ exports.handler = async (event) => {
   }
 
   try {
-    const { name, email, sex, size } = JSON.parse(event.body);
+    const { name, email, items } = JSON.parse(event.body);
 
     // Validate required fields
-    if (!name || !email || !sex || !size) {
+    if (!name || !email || !items || !Array.isArray(items) || items.length === 0) {
       return {
         statusCode: 400,
         body: JSON.stringify({ error: 'Missing required fields' })
       };
     }
 
+    // Validate each item has style and size
+    for (const item of items) {
+      if (!item.style || !item.size) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({ error: 'Each item must have style and size' })
+        };
+      }
+    }
+
     // Get price and currency from environment variables
     const price = parseInt(process.env.BUDGIE_PRICE || '5000');
     const currency = process.env.CURRENCY || 'aud';
 
+    // Create line items for each budgie smuggler
+    const lineItems = items.map((item, index) => ({
+      price_data: {
+        currency: currency,
+        product_data: {
+          name: `WWPD Budgie Smuggler - ${item.style}`,
+          description: `Size: ${item.size}`,
+          images: [], // Optional: Add product image URL if available
+        },
+        unit_amount: price,
+      },
+      quantity: 1,
+    }));
+
+    // Create metadata with all items information
+    const metadata = {
+      customer_name: name,
+      item_count: items.length.toString(),
+    };
+
+    // Add individual item details to metadata (Stripe has a 500 char limit per value)
+    items.forEach((item, index) => {
+      metadata[`item_${index + 1}`] = `${item.style} - ${item.size}`;
+    });
+
     // Create Stripe Checkout Session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: [
-        {
-          price_data: {
-            currency: currency,
-            product_data: {
-              name: `WWPD Budgie Smuggler - ${sex}`,
-              description: `Size: ${size}`,
-              images: [], // Optional: Add product image URL if available
-            },
-            unit_amount: price,
-          },
-          quantity: 1,
-        },
-      ],
+      line_items: lineItems,
       mode: 'payment',
       customer_email: email,
-      metadata: {
-        customer_name: name,
-        sex: sex,
-        size: size,
-      },
+      metadata: metadata,
       success_url: `${event.headers.origin || 'https://phoebedawsonfoundation.org'}/success.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${event.headers.origin || 'https://phoebedawsonfoundation.org'}/cancel.html`,
     });
