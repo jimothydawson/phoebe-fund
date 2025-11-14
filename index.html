@@ -622,7 +622,7 @@
                 <span class="wwpd-badge">What Would Phoebe Do?</span>
             </div>
             <div class="order-intro">
-                <p>Order your exclusive WWPD budgie smugglers (men's) or smugglettes (women's one-pieces)! Perfect for showing your support at the Sun Run and Cole Classic in February 2026. Proceeds go directly to the foundation.</p>
+                <p>Order your exclusive WWPD gear! Choose from budgie smugglers, racer one-pieces, kids' sizes, and bucket hats. Perfect for showing your support at the Sun Run and Cole Classic in February 2026. All proceeds go directly to the foundation.</p>
             </div>
 
             <form id="orderForm" class="order-form">
@@ -676,7 +676,7 @@
 
                 <div id="itemsList"></div>
 
-                <div class="price-info" id="priceInfo">$50 AUD</div>
+                <div class="price-info" id="priceInfo">Select styles to see price</div>
 
                 <button type="submit" class="submit-button" id="submitButton">
                     Proceed to Payment
@@ -799,7 +799,14 @@
     </footer>
 
     <script>
-        const PRICE_PER_ITEM = 50;
+        // Pricing for each style (wholesale + $10)
+        const stylePrices = {
+            "Men's": 55,
+            "Women's": 100,
+            "Boys'": 50,
+            "Girls'": 70,
+            "Bucket Hat": 50
+        };
 
         // Size options for each style
         const sizeOptions = {
@@ -840,6 +847,9 @@
                 { value: '6 (6 yrs)', label: '6 - 6 years (61-64cm chest)' },
                 { value: '8 (8 yrs)', label: '8 - 8 years (65-68cm chest)' },
                 { value: '10 (10 yrs)', label: '10 - 10 years (74cm chest)' }
+            ],
+            "Bucket Hat": [
+                { value: 'One Size', label: 'One Size Fits Most' }
             ]
         };
 
@@ -875,10 +885,11 @@
                                 </label>
                                 <select id="style${i}" name="style${i}" class="form-input item-style" data-index="${i}" required>
                                     <option value="">Select style</option>
-                                    <option value="Men's">Men's (Budgie Smugglers)</option>
-                                    <option value="Women's">Women's (Smugglettes - One Piece)</option>
-                                    <option value="Boys'">Boys' (Budgie Smugglers)</option>
-                                    <option value="Girls'">Girls' (One Piece)</option>
+                                    <option value="Men's">Men's (Budgie Smugglers) - $55</option>
+                                    <option value="Women's">Women's (Racer One Piece) - $100</option>
+                                    <option value="Boys'">Boys' (Budgie Smugglers) - $50</option>
+                                    <option value="Girls'">Girls' (One Piece) - $70</option>
+                                    <option value="Bucket Hat">Bucket Hat - $50</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -911,15 +922,32 @@
                         sizeSelect.disabled = true;
                         sizeSelect.innerHTML = '<option value="">Select style first</option>';
                     }
+
+                    // Update price when style changes
+                    updatePrice();
                 });
             });
         }
 
-        // Update total price
+        // Update total price based on selected styles
         function updatePrice() {
             const quantity = parseInt(document.getElementById('quantity').value) || 1;
-            const total = PRICE_PER_ITEM * quantity;
-            document.getElementById('priceInfo').textContent = `$${total} AUD`;
+            let total = 0;
+
+            // Calculate total based on selected styles
+            for (let i = 0; i < quantity; i++) {
+                const styleSelect = document.getElementById(`style${i}`);
+                if (styleSelect && styleSelect.value && stylePrices[styleSelect.value]) {
+                    total += stylePrices[styleSelect.value];
+                }
+            }
+
+            // If no styles selected yet, show starting price
+            if (total === 0) {
+                document.getElementById('priceInfo').textContent = 'Select styles to see price';
+            } else {
+                document.getElementById('priceInfo').textContent = `$${total} AUD`;
+            }
         }
 
         // Quantity change handler

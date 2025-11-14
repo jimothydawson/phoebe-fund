@@ -30,23 +30,37 @@ exports.handler = async (event) => {
       }
     }
 
-    // Get price and currency from environment variables
-    const price = parseInt(process.env.BUDGIE_PRICE || '5000');
+    // Pricing for each style in cents (wholesale + $10)
+    const stylePrices = {
+      "Men's": 5500,        // $55
+      "Women's": 10000,     // $100
+      "Boys'": 5000,        // $50
+      "Girls'": 7000,       // $70
+      "Bucket Hat": 5000    // $50
+    };
+
     const currency = process.env.CURRENCY || 'aud';
 
-    // Create line items for each budgie smuggler
-    const lineItems = items.map((item, index) => ({
-      price_data: {
-        currency: currency,
-        product_data: {
-          name: `WWPD Budgie Smuggler - ${item.style}`,
-          description: `Size: ${item.size}`,
-          images: [], // Optional: Add product image URL if available
+    // Create line items for each item with individual pricing
+    const lineItems = items.map((item, index) => {
+      const price = stylePrices[item.style];
+      if (!price) {
+        throw new Error(`Invalid style: ${item.style}`);
+      }
+
+      return {
+        price_data: {
+          currency: currency,
+          product_data: {
+            name: `WWPD ${item.style}`,
+            description: `Size: ${item.size}`,
+            images: [], // Optional: Add product image URL if available
+          },
+          unit_amount: price,
         },
-        unit_amount: price,
-      },
-      quantity: 1,
-    }));
+        quantity: 1,
+      };
+    });
 
     // Create metadata with all items information
     const metadata = {
