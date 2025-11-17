@@ -74,20 +74,35 @@ exports.handler = async (event) => {
       case 'checkout.session.completed':
         const session = stripeEvent.data.object;
 
-        // Extract order details from metadata
-        const orderData = {
-          name: session.metadata.customer_name,
-          email: session.customer_email || session.customer_details?.email,
-          sex: session.metadata.sex,
-          size: session.metadata.size,
-          paymentIntentId: session.payment_intent,
-          amount: session.amount_total / 100, // Convert from cents
-          status: 'paid'
-        };
+        // Extract item count from metadata
+        const itemCount = parseInt(session.metadata.item_count || '0');
 
-        // Save to Airtable
-        await saveToAirtable(orderData);
-        console.log('Order saved to Airtable:', orderData);
+        // Process each item separately
+        for (let i = 1; i <= itemCount; i++) {
+          const itemData = session.metadata[`item_${i}`]; // Format: "Style - Size"
+
+          if (!itemData) {
+            console.error(`Missing item_${i} in metadata`);
+            continue;
+          }
+
+          // Parse the item data (format: "Men's - XL")
+          const [style, size] = itemData.split(' - ').map(s => s.trim());
+
+          const orderData = {
+            name: session.metadata.customer_name,
+            email: session.customer_email || session.customer_details?.email,
+            sex: style,  // This is the style (Men's, Women's, etc.)
+            size: size,
+            paymentIntentId: session.payment_intent,
+            amount: session.amount_total / 100 / itemCount, // Split total amount by number of items
+            status: 'paid'
+          };
+
+          // Save each item to Airtable as a separate record
+          await saveToAirtable(orderData);
+          console.log(`Order item ${i} saved to Airtable:`, orderData);
+        }
         break;
 
       case 'payment_intent.payment_failed':
