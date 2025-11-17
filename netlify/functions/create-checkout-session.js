@@ -30,13 +30,13 @@ exports.handler = async (event) => {
       }
     }
 
-    // Pricing for each style in cents (TEST MODE - $1 each)
+    // Pricing for each style in cents (AUD)
     const stylePrices = {
-      "Men's": 100,        // $1
-      "Women's": 100,      // $1
-      "Boys'": 100,        // $1
-      "Girls'": 100,       // $1
-      "Bucket Hat": 100    // $1
+      "Men's": 5500,        // $55
+      "Women's": 10000,     // $100
+      "Boys'": 5000,        // $50
+      "Girls'": 7000,       // $70
+      "Bucket Hat": 5000    // $50
     };
 
     const currency = process.env.CURRENCY || 'aud';
