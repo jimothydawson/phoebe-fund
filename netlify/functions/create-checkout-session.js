@@ -32,11 +32,11 @@ exports.handler = async (event) => {
 
     // Pricing for each style in cents (AUD)
     const stylePrices = {
-      "Men's": 5500,        // $55
-      "Women's": 10000,     // $100
-      "Boys'": 5000,        // $50
-      "Girls'": 7000,       // $70
-      "Bucket Hat": 5000    // $50
+      "Mens": 5000,        // $50
+      "Womens": 9500,      // $95
+      "Boys": 4500,        // $45
+      "Girls": 6500,       // $65
+      "Bucket Hat": 4500    // $45
     };
 
     const currency = process.env.CURRENCY || 'aud';
@@ -48,12 +48,17 @@ exports.handler = async (event) => {
         throw new Error(`Invalid style: ${item.style}`);
       }
 
+      const strapInfo = item.strapType ? ` (${item.strapType})` : '';
+      const description = item.strapType
+        ? `${item.strapType} - Size: ${item.size}`
+        : `Size: ${item.size}`;
+
       return {
         price_data: {
           currency: currency,
           product_data: {
-            name: `WWPD ${item.style}`,
-            description: `Size: ${item.size}`,
+            name: `WWPD ${item.style}${strapInfo}`,
+            description: description,
             images: [], // Optional: Add product image URL if available
           },
           unit_amount: price,
@@ -70,7 +75,8 @@ exports.handler = async (event) => {
 
     // Add individual item details to metadata (Stripe has a 500 char limit per value)
     items.forEach((item, index) => {
-      metadata[`item_${index + 1}`] = `${item.style} - ${item.size}`;
+      const strapInfo = item.strapType ? ` (${item.strapType})` : '';
+      metadata[`item_${index + 1}`] = `${item.style}${strapInfo} - ${item.size}`;
     });
 
     // Create Stripe Checkout Session

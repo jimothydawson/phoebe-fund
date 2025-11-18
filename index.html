@@ -20,15 +20,10 @@
 
         /* Header */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url('banner.jpg');
+            background: url('banner.jpg');
             background-size: cover;
             background-position: center;
             min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
             position: relative;
         }
 
@@ -85,20 +80,43 @@
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 0;
+        .nav-container {
             max-width: 1400px;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
         }
 
-        nav li {
+        .nav-logo {
+            flex-shrink: 0;
+        }
+
+        .nav-logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 20px 0;
+            display: block;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
             flex: 1;
         }
 
-        nav a {
+        .nav-menu a {
             color: white;
             text-decoration: none;
             font-size: 15px;
@@ -110,9 +128,25 @@
             letter-spacing: 1px;
         }
 
-        nav a:hover {
+        .nav-menu a:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 20px 0;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
         }
 
         /* Main Content */
@@ -377,6 +411,39 @@
             font-weight: 300;
         }
 
+        .product-images {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .product-image-item {
+            text-align: center;
+        }
+
+        .product-image-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .image-caption {
+            font-size: 14px;
+            color: #5a6c7d;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .image-caption strong {
+            color: #2c3e50;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
         .order-form {
             background: white;
             padding: 50px;
@@ -515,6 +582,74 @@
             margin-bottom: 0;
         }
 
+        .item-input-row {
+            margin-bottom: 20px;
+        }
+
+        .item-input-row .form-group {
+            margin-bottom: 15px;
+        }
+
+        .add-item-button {
+            width: 100%;
+            background: linear-gradient(135deg, #F4C430 0%, #FFA500 100%);
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .add-item-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(244, 196, 48, 0.4);
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid #F4C430;
+        }
+
+        .order-item-info {
+            flex: 1;
+        }
+
+        .order-item-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .order-item-details {
+            font-size: 14px;
+            color: #5a6c7d;
+        }
+
+        .order-item-price {
+            font-weight: 700;
+            color: #F4C430;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .empty-order {
+            text-align: center;
+            padding: 30px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
         .wwpd-badge {
             background: linear-gradient(135deg, #F4C430 0%, #FFA500 100%);
             color: white;
@@ -526,6 +661,15 @@
             margin-bottom: 20px;
             letter-spacing: 1px;
         }
+
+        /* Hidden Sections */
+        .story,
+        .quote-section,
+        .board,
+        footer {
+            display: none;
+        }
+
 
         /* Footer */
         footer {
@@ -565,14 +709,53 @@
                 height: 350px;
             }
 
-            nav ul {
-                flex-wrap: wrap;
+            .hamburger {
+                display: flex;
             }
 
-            nav a {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: rgba(244, 196, 48, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                flex: none;
+            }
+
+            .nav-menu a {
                 padding: 15px 20px;
                 font-size: 13px;
             }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+
+        /* Price List Styles */
+        .price-list button:hover {
+            background: #FFA500;
+        }
 
             .container {
                 padding: 60px 20px;
@@ -582,106 +765,188 @@
                 font-size: 22px;
             }
 
+            .order-section {
+                padding: 40px 0;
+            }
+
+            .order-container {
+                max-width: 100%;
+            }
+
+            .product-images {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 20px;
+            }
+
             .order-form {
                 padding: 30px 20px;
+                border-radius: 0;
             }
 
             .form-row {
                 flex-direction: column;
                 gap: 0;
             }
+
+            .item-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .item-row .form-group {
+                margin-bottom: 25px;
+            }
+
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="header-content">
-            <div class="logo">PDF</div>
-            <h1>Phoebe Dawson Foundation</h1>
-            <p class="tagline">Our Sunshine Girl</p>
-        </div>
     </header>
 
     <!-- Navigation -->
     <nav>
-        <ul>
-            <li><a href="#order">WWPD Budgys</a></li>
-            <li><a href="#contact">Get Involved</a></li>
-            <li><a href="#mission">Our Mission</a></li>
-            <li><a href="#story">Phoebe's Story</a></li>
-            <li><a href="#board">Board of Directors</a></li>
-        </ul>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#top">Phoebe Dawson Foundation</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" onclick="scrollToElement('budgy-smugglers'); return false;">WWPD Budgy Smugglers</a></li>
+                <li><a href="#" onclick="scrollToElement('orderForm'); return false;">Order Form</a></li>
+                <li><a href="#" onclick="scrollToElement('styles'); return false;">Styles</a></li>
+                <li><a href="#" onclick="scrollToElement('contact'); return false;">Get Involved</a></li>
+                <li><a href="#" onclick="scrollToElement('mission'); return false;">What We Do</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
     </nav>
 
     <!-- Order Section -->
-    <section class="order-section" id="order">
+    <section class="order-section" id="budgy-smugglers">
         <div class="order-container">
             <h2>WWPD Budgy Smugglers</h2>
-            <div style="text-align: center;">
-                <span class="wwpd-badge">What Would Phoebe Do?</span>
-            </div>
             <div class="order-intro">
-                <p>Choose from budgy smugglers, racer one-pieces, kids' sizes, and bucket hats. Perfect for showing your support at the Sun Run and Cole Classic in February 2026. All proceeds go directly to the foundation.</p>
+                <p>
+                    • Another run of custom WWPD swimmers ready for the 2026 Cole Classic<br>
+                    • Same design as last year<br>
+                    • Order online directly with the form below<br>
+                    • $5 from each piece goes to the Phoebe Dawson Foundation
+                </p>
+
+                <div class="price-list" style="margin-top: 30px; text-align: center;">
+                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Mens - $50</strong> <button onclick="scrollToElement('mens-item')" style="background: #F4C430; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
+                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Boys - $45</strong> <button onclick="scrollToElement('mens-item')" style="background: #F4C430; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
+                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Womens (Thick Strap) - $95</strong> <button onclick="scrollToElement('womens-thick-item')" style="background: #F4C430; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
+                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Womens (Thin Strap) - $95</strong> <button onclick="scrollToElement('womens-thin-item')" style="background: #F4C430; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
+                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Girls - $65</strong> <button onclick="scrollToElement('womens-thick-item')" style="background: #F4C430; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
+                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Bucket Hat - $45</strong> <button onclick="scrollToElement('bucket-hat-item')" style="background: #F4C430; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
+                </div>
             </div>
 
             <form id="orderForm" class="order-form">
+              <h2>Order Form</h2>
+
+                <h3 style="margin-bottom: 20px; color: #2c3e50;">Add Items</h3>
+
                 <div class="form-group">
-                    <label class="form-label" for="name">
-                        Full Name <span class="required">*</span>
-                    </label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        class="form-input"
-                        required
-                        placeholder="Enter your full name"
-                    >
-                    <span class="error-message" id="nameError">Please enter your name</span>
+                    <label class="form-label" for="itemSelect">Item <span class="required">*</span></label>
+                    <select id="itemSelect" class="form-input">
+                        <option value="">Select item</option>
+                        <option value="Mens">Mens - $50</option>
+                        <option value="Womens">Womens - $95</option>
+                        <option value="Boys">Boys - $45</option>
+                        <option value="Girls">Girls - $65</option>
+                        <option value="Bucket Hat">Bucket Hat - $45</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="strapTypeGroup" style="display: none;">
+                    <label class="form-label" for="strapTypeSelect">Strap Type <span class="required">*</span></label>
+                    <select id="strapTypeSelect" class="form-input">
+                        <option value="">Select strap type</option>
+                        <option value="Thick Strap">Thick Strap</option>
+                        <option value="Thin Strap">Thin Strap</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="email">
-                        Email <span class="required">*</span>
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        class="form-input"
-                        required
-                        placeholder="your.email@example.com"
-                    >
-                    <span class="error-message" id="emailError">Please enter a valid email</span>
+                    <label class="form-label" for="sizeSelect">Size <span class="required">*</span></label>
+                    <select id="sizeSelect" class="form-input" disabled>
+                        <option value="">Select item first</option>
+                    </select>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label" for="quantity">
-                        Quantity <span class="required">*</span>
-                    </label>
-                    <input
-                        type="number"
-                        id="quantity"
-                        name="quantity"
-                        class="form-input"
-                        required
-                        min="1"
-                        max="10"
-                        value="1"
-                        placeholder="1"
-                    >
-                    <span class="error-message" id="quantityError">Please enter a quantity between 1 and 10</span>
-                </div>
-
-                <div id="itemsList"></div>
-
-                <div class="price-info" id="priceInfo">Select styles to see price</div>
-
-                <button type="submit" class="submit-button" id="submitButton">
-                    Proceed to Payment
+                <button type="button" class="add-item-button" id="addItemButton">
+                    Add to Cart
                 </button>
+
+                <div id="orderItemsList" style="margin-top: 30px;"></div>
+
+                <div style="border-top: 2px solid #e0e0e0; margin: 30px 0; padding-top: 30px;">
+                    <h3 style="margin-bottom: 20px; color: #2c3e50;">Your Details</h3>
+
+                    <div class="form-group">
+                        <label class="form-label" for="name">
+                            Full Name <span class="required">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            class="form-input"
+                            required
+                            placeholder="Enter your full name"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">
+                            Email <span class="required">*</span>
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-input"
+                            required
+                            placeholder="your.email@example.com"
+                        >
+                    </div>
+
+                    <div class="price-info" id="priceInfo">No items added yet</div>
+
+                    <button type="submit" class="submit-button" id="submitButton" disabled>
+                        Proceed to Payment
+                    </button>
+                </div>
             </form>
+
+            <h2>Styles</h2>
+
+            <div id="styles" class="product-images">
+                <div id="mens-item" class="product-image-item">
+                    <p class="image-caption" style="margin-bottom: 20px;"><strong>Mens - $50</strong><br>Boys' design is the same</p>
+                    <img src="mens.jpeg" alt="Men's Budgy Smugglers Design">
+                </div>
+                <div id="womens-thick-item" class="product-image-item">
+                    <p class="image-caption" style="margin-bottom: 20px;"><strong>Womens (Thick Strap) - $95</strong><br>Girls' design the same</p>
+                    <img src="womens-thick.jpeg" alt="Women's Racer One Piece - Thick Strap">
+                </div>
+                <div id="womens-thin-item" class="product-image-item">
+                    <p class="image-caption" style="margin-bottom: 20px;"><strong>Womens (Thin Strap) - $95</strong><br>Shape reference only, custom style same as above</p>
+                    <img src="womens-thin-unstyled.jpeg" alt="Women's Racer One Piece - Thin Strap Shape Reference">
+                </div>
+                <div id="bucket-hat-item" class="product-image-item">
+                    <p class="image-caption" style="margin-bottom: 20px;"><strong>Bucket Hat - $45</strong></p>
+                    <img src="bucket-hats.jpeg" alt="Bucket Hats">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -696,9 +961,7 @@
                 <p><strong>February 2026:</strong> Join Team Phoebe in the <strong>Sun Run</strong> and <strong>Cole Classic</strong> ocean swim.</p>
                 <p><strong>June 2026:</strong> <strong>Gala in Phoebe's Honour</strong> - An evening of celebration, community, and fundraising to officially launch the foundation's programs.</p>
 
-                <p style="margin-top: 30px;"><strong>Email:</strong> info@phoebedawsonfoundation.org</p>
-                <p><strong>Phone:</strong> [Phone Number]</p>
-                <a href="#" class="donate-button">Support Our Mission</a>
+                <p style="margin-top: 30px;"><strong>Email:</strong> phoebedawsonfoundation@gmail.com</p>
             </div>
         </div>
     </section>
@@ -708,24 +971,9 @@
         <div class="container">
             <h2>What We Do</h2>
             <div class="mission-content">
-                <p>The Phoebe Dawson Foundation is dedicated to supporting health, wellness, and community programs in memory of Phoebe Dawson, who tragically lost her life in February 2024. Through compassionate outreach and meaningful initiatives, we strive to create lasting positive change in the communities Phoebe loved and served.</p>
-                <p>Our foundation works to ensure that Phoebe's legacy of kindness, dedication to caring for others, and her radiant spirit continues to touch lives and inspire others to make a difference. As we often ask ourselves: What Would Phoebe Do?</p>
+                <p>The Phoebe Dawson Foundation, founded by Phoebe's husband Tim, is an upcoming charity dedicated to supporting public health and community programs in memory of Phoebe.</p>
             </div>
 
-            <div class="objectives">
-                <div class="objective-card">
-                    <h3>Health & Wellness Programs</h3>
-                    <p>Supporting initiatives that promote health, wellness, and community care, reflecting Phoebe's lifelong dedication to nursing and caring for others in her community.</p>
-                </div>
-                <div class="objective-card">
-                    <h3>Community Connection</h3>
-                    <p>Fostering the same sense of community and connection that Phoebe created wherever she went, bringing people together through active living and shared experiences.</p>
-                </div>
-                <div class="objective-card">
-                    <h3>Continuing Her Light</h3>
-                    <p>Asking ourselves "What Would Phoebe Do?" as we work to spread the same joy, compassion, and positive energy that our ray of sunshine brought to everyone she met.</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -801,16 +1049,16 @@
     <script>
         // Pricing for each style (AUD)
         const stylePrices = {
-            "Men's": 55,
-            "Women's": 100,
-            "Boys'": 50,
-            "Girls'": 70,
-            "Bucket Hat": 50
+            "Mens": 50,
+            "Womens": 95,
+            "Boys": 45,
+            "Girls": 65,
+            "Bucket Hat": 45
         };
 
         // Size options for each style
         const sizeOptions = {
-            "Men's": [
+            "Mens": [
                 { value: 'XS (28)', label: 'XS - 28" (70-75cm waist)' },
                 { value: 'S (30)', label: 'S - 30" (75-80cm waist)' },
                 { value: 'M (32)', label: 'M - 32" (80-85cm waist)' },
@@ -819,7 +1067,7 @@
                 { value: 'XXL (38)', label: 'XXL - 38" (95-100cm waist)' },
                 { value: 'XXXL (40)', label: 'XXXL - 40" (100-105cm waist)' }
             ],
-            "Women's": [
+            "Womens": [
                 { value: '06', label: 'Size 06 (74-75cm bust, 55-60cm waist)' },
                 { value: '08', label: 'Size 08 (79-83cm bust, 61-65cm waist)' },
                 { value: '10', label: 'Size 10 (82-88cm bust, 66-70cm waist)' },
@@ -829,7 +1077,7 @@
                 { value: '18', label: 'Size 18 (104-108cm bust, 86-90cm waist)' },
                 { value: '20', label: 'Size 20 (109-113cm bust, 91-95cm waist)' }
             ],
-            "Boys'": [
+            "Boys": [
                 { value: '0 (6-12 mths)', label: '0 - 6-12 months (50-52cm waist)' },
                 { value: '1 (12-18 mths)', label: '1 - 12-18 months (52-54cm waist)' },
                 { value: '2 (18-24 mths)', label: '2 - 18-24 months (53-56cm waist)' },
@@ -839,7 +1087,7 @@
                 { value: '10 (10 yrs)', label: '10 - 10 years (64-68cm waist)' },
                 { value: '12 (12 yrs)', label: '12 - 12 years (68-72cm waist)' }
             ],
-            "Girls'": [
+            "Girls": [
                 { value: '0 (6-12 mths)', label: '0 - 6-12 months (48-50cm chest)' },
                 { value: '1 (12-18 mths)', label: '1 - 12-18 months (51-53cm chest)' },
                 { value: '2 (24 mths)', label: '2 - 24 months (54-56cm chest)' },
@@ -853,6 +1101,9 @@
             ]
         };
 
+        // Order items array
+        let orderItems = [];
+
         // Create size select options HTML
         function createSizeOptions(style) {
             let html = '<option value="">Select size</option>';
@@ -864,101 +1115,130 @@
             return html;
         }
 
-        // Generate item inputs based on quantity
-        function generateItemInputs(quantity) {
-            const itemsList = document.getElementById('itemsList');
+        // Update order items display
+        function updateOrderDisplay() {
+            const orderItemsList = document.getElementById('orderItemsList');
+            const addItemButton = document.getElementById('addItemButton');
+            const submitButton = document.getElementById('submitButton');
 
-            if (quantity < 1) {
-                itemsList.innerHTML = '';
+            if (orderItems.length === 0) {
+                orderItemsList.innerHTML = '';
+                submitButton.disabled = true;
+            } else {
+                let html = '<h4 style="margin-bottom: 15px; color: #2c3e50;">Your Order</h4>';
+                orderItems.forEach((item, index) => {
+                    const price = stylePrices[item.style];
+                    const strapInfo = item.strapType ? ` (${item.strapType})` : '';
+                    html += `
+                        <div class="order-item">
+                            <div class="order-item-info">
+                                <div class="order-item-title">${item.style}${strapInfo}</div>
+                                <div class="order-item-details">Size: ${item.size}</div>
+                            </div>
+                            <div class="order-item-price">$${price}</div>
+                            <button type="button" class="remove-button" data-index="${index}">Remove</button>
+                        </div>
+                    `;
+                });
+                orderItemsList.innerHTML = html;
+
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-button').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const index = parseInt(this.dataset.index);
+                        orderItems.splice(index, 1);
+                        updateOrderDisplay();
+                        updatePrice();
+                    });
+                });
+
+                submitButton.disabled = false;
+                addItemButton.textContent = 'Add Another Item';
+            }
+        }
+
+        // Update total price
+        function updatePrice() {
+            let total = 0;
+            orderItems.forEach(item => {
+                if (stylePrices[item.style]) {
+                    total += stylePrices[item.style];
+                }
+            });
+
+            if (total === 0) {
+                document.getElementById('priceInfo').textContent = 'No items added yet';
+            } else {
+                document.getElementById('priceInfo').textContent = `Total: $${total} AUD`;
+            }
+        }
+
+        // Item select change handler
+        document.getElementById('itemSelect').addEventListener('change', function() {
+            const sizeSelect = document.getElementById('sizeSelect');
+            const strapTypeGroup = document.getElementById('strapTypeGroup');
+            const strapTypeSelect = document.getElementById('strapTypeSelect');
+            const style = this.value;
+
+            // Show/hide strap type selection for Womens
+            if (style === 'Womens') {
+                strapTypeGroup.style.display = 'block';
+                strapTypeSelect.value = '';
+            } else {
+                strapTypeGroup.style.display = 'none';
+                strapTypeSelect.value = '';
+            }
+
+            if (style && sizeOptions[style]) {
+                sizeSelect.disabled = false;
+                sizeSelect.innerHTML = createSizeOptions(style);
+            } else {
+                sizeSelect.disabled = true;
+                sizeSelect.innerHTML = '<option value="">Select item first</option>';
+            }
+        });
+
+        // Add item button handler
+        document.getElementById('addItemButton').addEventListener('click', function() {
+            const itemSelect = document.getElementById('itemSelect');
+            const sizeSelect = document.getElementById('sizeSelect');
+            const strapTypeSelect = document.getElementById('strapTypeSelect');
+            const strapTypeGroup = document.getElementById('strapTypeGroup');
+
+            const style = itemSelect.value;
+            const size = sizeSelect.value;
+            const strapType = strapTypeSelect.value;
+
+            if (!style || !size) {
+                alert('Please select both item and size');
                 return;
             }
 
-            let html = '<ol class="items-list-ordered">';
-
-            for (let i = 0; i < quantity; i++) {
-                html += `
-                    <li class="item-entry">
-                        <div class="item-row">
-                            <div class="form-group">
-                                <label class="form-label" for="style${i}">
-                                    Style <span class="required">*</span>
-                                </label>
-                                <select id="style${i}" name="style${i}" class="form-input item-style" data-index="${i}" required>
-                                    <option value="">Select style</option>
-                                    <option value="Men's">Men's (Budgy Smugglers) - $55</option>
-                                    <option value="Women's">Women's (Racer One Piece) - $100</option>
-                                    <option value="Boys'">Boys' (Budgy Smugglers) - $50</option>
-                                    <option value="Girls'">Girls' (One Piece) - $70</option>
-                                    <option value="Bucket Hat">Bucket Hat - $50</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="size${i}">
-                                    Size <span class="required">*</span>
-                                </label>
-                                <select id="size${i}" name="size${i}" class="form-input item-size" data-index="${i}" required disabled>
-                                    <option value="">Select style first</option>
-                                </select>
-                            </div>
-                        </div>
-                    </li>
-                `;
+            // Check if Womens requires strap type
+            if (style === 'Womens' && !strapType) {
+                alert('Please select a strap type for Womens items');
+                return;
             }
 
-            html += '</ol>';
-            itemsList.innerHTML = html;
-
-            // Add event listeners to all style selects
-            document.querySelectorAll('.item-style').forEach(styleSelect => {
-                styleSelect.addEventListener('change', function() {
-                    const index = this.dataset.index;
-                    const sizeSelect = document.getElementById(`size${index}`);
-                    const style = this.value;
-
-                    if (style && sizeOptions[style]) {
-                        sizeSelect.disabled = false;
-                        sizeSelect.innerHTML = createSizeOptions(style);
-                    } else {
-                        sizeSelect.disabled = true;
-                        sizeSelect.innerHTML = '<option value="">Select style first</option>';
-                    }
-
-                    // Update price when style changes
-                    updatePrice();
-                });
-            });
-        }
-
-        // Update total price based on selected styles
-        function updatePrice() {
-            const quantity = parseInt(document.getElementById('quantity').value) || 1;
-            let total = 0;
-
-            // Calculate total based on selected styles
-            for (let i = 0; i < quantity; i++) {
-                const styleSelect = document.getElementById(`style${i}`);
-                if (styleSelect && styleSelect.value && stylePrices[styleSelect.value]) {
-                    total += stylePrices[styleSelect.value];
-                }
+            // Add to order with strap type if applicable
+            const orderItem = { style, size };
+            if (style === 'Womens') {
+                orderItem.strapType = strapType;
             }
+            orderItems.push(orderItem);
 
-            // If no styles selected yet, show starting price
-            if (total === 0) {
-                document.getElementById('priceInfo').textContent = 'Select styles to see price';
-            } else {
-                document.getElementById('priceInfo').textContent = `$${total} AUD`;
-            }
-        }
+            // Clear inputs
+            itemSelect.value = '';
+            sizeSelect.value = '';
+            sizeSelect.disabled = true;
+            sizeSelect.innerHTML = '<option value="">Select item first</option>';
+            strapTypeSelect.value = '';
+            strapTypeGroup.style.display = 'none';
 
-        // Quantity change handler
-        document.getElementById('quantity').addEventListener('input', function() {
-            const quantity = parseInt(this.value) || 1;
-            generateItemInputs(quantity);
+            // Update displays
+            updateOrderDisplay();
             updatePrice();
         });
-
-        // Initialize with 1 item
-        generateItemInputs(1);
 
         // Form validation and Stripe checkout
         document.getElementById('orderForm').addEventListener('submit', async function(e) {
@@ -967,45 +1247,20 @@
             // Get form values
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
-            const quantity = parseInt(document.getElementById('quantity').value) || 1;
-
-            // Reset error messages
-            document.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
 
             // Validate basic fields
-            let isValid = true;
-
             if (!name) {
-                document.getElementById('nameError').classList.add('show');
-                isValid = false;
+                alert('Please enter your name');
+                return;
             }
 
             if (!email || !email.includes('@')) {
-                document.getElementById('emailError').classList.add('show');
-                isValid = false;
+                alert('Please enter a valid email');
+                return;
             }
 
-            if (quantity < 1 || quantity > 10) {
-                document.getElementById('quantityError').classList.add('show');
-                isValid = false;
-            }
-
-            // Collect all items
-            const items = [];
-            for (let i = 0; i < quantity; i++) {
-                const style = document.getElementById(`style${i}`).value;
-                const size = document.getElementById(`size${i}`).value;
-
-                if (!style || !size) {
-                    isValid = false;
-                    alert(`Please select both style and size for item ${i + 1}`);
-                    break;
-                }
-
-                items.push({ style, size });
-            }
-
-            if (!isValid) {
+            if (orderItems.length === 0) {
+                alert('Please add at least one item to your order');
                 return;
             }
 
@@ -1024,7 +1279,7 @@
                     body: JSON.stringify({
                         name,
                         email,
-                        items
+                        items: orderItems
                     })
                 });
 
@@ -1043,6 +1298,44 @@
                 submitButton.textContent = 'Proceed to Payment';
             }
         });
+
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a nav link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll to element with header offset
+        function scrollToElement(elementId) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                const rect = el.getBoundingClientRect();
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                window.scrollTo({
+                    top: scrollTop + rect.top - 70,
+                    behavior: 'smooth'
+                });
+            }
+        }
     </script>
 </body>
 </html>
