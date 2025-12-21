@@ -266,6 +266,95 @@
             margin-bottom: 22px;
         }
 
+        /* Foundation Update Section */
+        .foundation-update {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 80px 30px;
+        }
+
+        .update-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .update-content p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #5a6c7d;
+        }
+
+        .update-highlights h3,
+        .wwpd-events h3,
+        .upcoming-events h3 {
+            color: #F4C430;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .contribution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .contribution-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .contribution-item h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .contribution-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .wwpd-events,
+        .upcoming-events {
+            margin-bottom: 50px;
+        }
+
+        .upcoming-events ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .upcoming-events li {
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 16px;
+        }
+
+        .upcoming-events li:last-child {
+            border-bottom: none;
+        }
+
+        .upcoming-events a {
+            color: #F4C430;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .upcoming-events a:hover {
+            text-decoration: underline;
+        }
+
+        .foundation-message {
+            background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #F4C430;
+        }
+
         /* Board Section */
         .board {
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
@@ -708,6 +797,19 @@
                 height: 350px;
             }
 
+            .contribution-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contribution-item {
+                padding: 20px;
+            }
+
+            .foundation-message {
+                padding: 20px;
+            }
+
             .hamburger {
                 display: flex;
             }
@@ -812,11 +914,9 @@
                 <a href="#top">Phoebe Dawson Foundation</a>
             </div>
             <ul class="nav-menu">
-                <li><a href="#" onclick="scrollToElement('budgy-smugglers'); return false;">WWPD Budgy Smugglers</a></li>
-                <li><a href="#" onclick="scrollToElement('orderForm'); return false;">Order Form</a></li>
-                <li><a href="#" onclick="scrollToElement('styles'); return false;">Styles</a></li>
-                <li><a href="#" onclick="scrollToElement('contact'); return false;">Get Involved</a></li>
-                <li><a href="#" onclick="scrollToElement('mission'); return false;">What We Do</a></li>
+                <li style="display: none;"><a href="#" onclick="scrollToElement('budgy-smugglers'); return false;">WWPD Budgy Smugglers</a></li>
+                <li style="display: none;"><a href="#" onclick="scrollToElement('orderForm'); return false;">Order Form</a></li>
+                <li><a href="#" onclick="scrollToElement('update'); return false;">Foundation Update</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -827,7 +927,7 @@
     </nav>
 
     <!-- Order Section -->
-    <section class="order-section" id="budgy-smugglers">
+    <section class="order-section" id="budgy-smugglers" style="display: none;">
         <div class="order-container">
             <h2>WWPD Budgy Smugglers</h2>
             <div class="order-intro">
@@ -951,33 +1051,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2>Get Involved</h2>
-            <div class="contact-info">
-                <p>Your support helps us continue Phoebe's legacy of compassion and care. As we prepare for the foundation's official launch, we're already looking forward to raising funds for various programs that reflect our sunshine girl's spirit.</p>
-
-                <h3 style="color: #F4C430; margin: 30px 0 20px;">Upcoming Events - 2026</h3>
-                <p><strong>February 2026:</strong> Join Team Phoebe in the <strong>Sun Run</strong> and <strong>Cole Classic</strong> ocean swim.</p>
-                <p><strong>June 2026:</strong> <strong>Gala in Phoebe's Honour</strong> - An evening of celebration, community, and fundraising to officially launch the foundation's programs.</p>
-
-                <p style="margin-top: 30px;"><strong>Email:</strong> phoebedawsonfoundation@gmail.com</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission Section -->
-    <section class="mission" id="mission">
-        <div class="container">
-            <h2>What We Do</h2>
-            <div class="mission-content">
-                <p>The Phoebe Dawson Foundation, founded by Phoebe's husband Tim, is an upcoming charity dedicated to supporting public health and community programs in memory of Phoebe.</p>
-            </div>
-
-        </div>
-    </section>
-
     <!-- Story Section -->
     <section class="story" id="story">
         <div class="container">
@@ -994,6 +1067,56 @@
                     <p>Tragically, Phoebe lost her life in February 2024 while driving in a storm. The loss of our sunshine girl has left a void in the hearts of all who knew her, but her legacy of compassion, service, and joy continues to inspire us.</p>
                     
                     <p>The Phoebe Dawson Foundation was established by her husband Tim and their family to ensure that Phoebe's radiant spirit continues to make a difference. In everything we do, we ask ourselves: What Would Phoebe Do? (WWPD). The answer guides us to spread kindness, support our community, and live life with the same generous heart that defined Phoebe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Foundation Update Section -->
+    <section class="foundation-update" id="update">
+        <div class="container">
+            <h2>A Note from James Barnet</h2>
+            <div class="update-content">
+                <p>This is an update from Phoebe's father, James Barnet, on recent developments and future plans for the Phoebe Dawson Foundation.</p>
+
+                <div class="update-highlights">
+                    <h3>Recent Contributions</h3>
+                    <div class="contribution-grid">
+                        <div class="contribution-item">
+                            <h4>Cook Park, Orange</h4>
+                            <p>Funded the erection of a picnic table and bench adjacent to the fernery - the location where Tim proposed to Phoebe.</p>
+                        </div>
+                        <div class="contribution-item">
+                            <h4>Little Manly</h4>
+                            <p>Installed a park bench at the top of the park below the ablution block with views across the harbour - where Phoebe and Tim were married.</p>
+                        </div>
+                        <div class="contribution-item">
+                            <h4>Bear Cottage, Manly</h4>
+                            <p>Donated towards a mechanised awning over the outdoor deck area, providing comfort for children and families during palliative care visits.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wwpd-events">
+                    <h3>WWPD Events</h3>
+                    <p>In early February 2025, 29 intrepid swimmers participated in the Cole Classic "the world's biggest ocean swim" under the WWPD (What Would Phoebe Do) banner. All participants wore custom yellow and white swimmers with WWPD branding. The previous day, 10 participants took part in the 10km Dee Why to Manly Sun Run.</p>
+                    <p>These events brought together participants of all ages and helped build awareness of the foundation's mission to support causes close to Phoebe's heart.</p>
+                </div>
+
+                <div class="upcoming-events">
+                    <h3>Upcoming Events 2026</h3>
+                    <ul>
+                        <li><strong>Dee Why to Manly Sun Run</strong> - Saturday 31st January 2026 (10 participants registered)</li>
+                        <li><strong>Cole Classic Ocean Swim</strong> - Sunday 1st February 2026 (35 participants registered)</li>
+                        <li><strong>Black Tie Gala Evening</strong> - Saturday 27th June 2026 at the Art Gallery of NSW</li>
+                    </ul>
+                    <p>Entries are still open! Join Team WWPD or support the foundation through donations at: <a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank">phoebe-dawson-foundation.grassrootz.com</a></p>
+                    <p>Following the January events, join us for a BBQ and gathering at Little Manly.</p>
+                </div>
+
+                <div class="foundation-message">
+                    <p>The Phoebe Dawson Foundation is not restricted in how funds will be raised, but be assured it will be fun - just as our sunshine girl would want. Since losing Phoebe, our family has experienced extraordinary expressions of love and support from so many.</p>
+                    <p>Please share this with anyone who might be interested in joining our community of compassion and joy.</p>
                 </div>
             </div>
         </div>
