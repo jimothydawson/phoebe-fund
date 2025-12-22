@@ -329,7 +329,8 @@
             margin-right: auto;
         }
 
-        .two-column-section h3 {
+        .two-column-section h3,
+        .main-content > div > h3 {
             color: #f6a152;
             font-size: 28px;
             margin-bottom: 20px;
@@ -407,6 +408,36 @@
             line-height: 1.8;
             color: #5a6c7d;
             margin-bottom: 0;
+        }
+
+        /* Donate Button */
+        .donate-section {
+            text-align: center;
+            padding: 60px;
+            background: white;
+            border-bottom: 1px solid #f6a152;
+        }
+
+        .donate-button {
+            display: inline-block;
+            background: #f6a152;
+            color: white;
+            text-decoration: none;
+            padding: 25px 60px;
+            font-size: 24px;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(246, 161, 82, 0.3);
+        }
+
+        .donate-button:hover {
+            background: #e8823e;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(246, 161, 82, 0.4);
         }
 
         .update-content p {
@@ -965,10 +996,13 @@
             .two-column-section {
                 grid-template-columns: 1fr;
                 gap: 0;
+                border-bottom: none;
             }
 
             .two-column-section > div {
                 padding: 0;
+                border-right: none;
+                border-bottom: none;
             }
 
             .two-column-section > div:has(h3),
@@ -978,8 +1012,35 @@
             }
 
             .four-quadrant-section {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto;
+                display: flex;
+                flex-direction: column;
+                border-bottom: none;
+            }
+
+            .four-quadrant-section > div {
+                border-right: none;
+                border-bottom: none;
+            }
+
+            .four-quadrant-section > div:nth-child(1),
+            .four-quadrant-section > div:nth-child(2) {
+                border-bottom: none;
+            }
+
+            .four-quadrant-section > div:nth-child(1) {
+                order: 2;
+            }
+
+            .four-quadrant-section > div:nth-child(2) {
+                order: 1;
+            }
+
+            .four-quadrant-section > div:nth-child(3) {
+                order: 3;
+            }
+
+            .four-quadrant-section > div:nth-child(4) {
+                order: 4;
             }
 
             .four-quadrant-section > div:has(h4),
@@ -999,18 +1060,15 @@
                 padding: 0;
             }
 
-            .main-content h2,
-            .main-content h3,
-            .main-content > div > h3 {
-                padding-left: 20px !important;
-                padding-right: 20px !important;
+            .donate-section {
+                padding: 40px 20px;
+                border-bottom: none;
             }
 
-            .main-content > div {
-                padding-left: 20px !important;
-                padding-right: 20px !important;
-                margin-left: 20px !important;
-                margin-right: 20px !important;
+            .donate-button {
+                padding: 20px 40px;
+                font-size: 20px;
+                letter-spacing: 1px;
             }
 
             .hamburger {
@@ -1106,10 +1164,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-    </header>
-
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
@@ -1122,6 +1176,9 @@
                 <li style="display: none;"><a href="#" onclick="scrollToElement('budgy-smugglers'); return false;">WWPD Budgy Smugglers</a></li>
                 <li style="display: none;"><a href="#" onclick="scrollToElement('orderForm'); return false;">Order Form</a></li>
                 <li><a href="#" onclick="scrollToElement('about'); return false;">About</a></li>
+                <li><a href="#" onclick="scrollToElement('mission'); return false;">Mission</a></li>
+                <li><a href="#" onclick="scrollToElement('events'); return false;">Events</a></li>
+                <li><a href="#" onclick="scrollToElement('contributions'); return false;">Contributions</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -1130,6 +1187,10 @@
             </div>
         </div>
     </nav>
+
+    <!-- Header -->
+    <header>
+    </header>
 
     <!-- Order Section -->
     <section class="order-section" id="budgy-smugglers" style="display: none;">
@@ -1281,7 +1342,7 @@
     <section class="main-content" id="about">
         
         <!-- Logo + Mission -->
-        <div class="two-column-section">
+        <div class="two-column-section" id="mission">
             <div>
                 <img src="assets/01_orange_logo_square.png" alt="Phoebe Dawson Foundation Logo">
             </div>
@@ -1292,10 +1353,31 @@
             </div>
         </div>
 
-        <!-- WWPD Events -->
+        <!-- Donate Button -->
+        <div class="donate-section">
+            <a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank" class="donate-button">Donate Now</a>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div class="two-column-section" id="events">
+            <div>
+                <h3>Upcoming Events 2026</h3>
+                <ul style="font-size: 17px; line-height: 2; color: #5a6c7d; margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>Dee Why to Manly Sun Run</strong> - Saturday 31st January 2026 - <a href="https://raceroster.com/events/2026/110486/sun-run-2026" target="_blank" style="color: #f6a152;">Entries still open!</a></li>
+                    <li><strong>Cole Classic Ocean Swim</strong> - Sunday 1st February 2026 - Entries closed</li>
+                    <li><strong>Black Tie Gala Evening</strong> - Saturday 27th June 2026 at the Art Gallery of NSW</li>
+                </ul>
+                <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d; margin-bottom: 20px;">Join Team WWPD or support the foundation through donations at: <a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank" style="color: #f6a152;">phoebe-dawson-foundation.grassrootz.com</a></p>
+                <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d;">Following the January events, join us for a BBQ and gathering at Little Manly.</p>
+            </div>
+            <div>
+            </div>
+        </div>
+
+        <!-- Past Events -->
         <div class="two-column-section">
             <div>
-                <h3 style="color: #f6a152; font-size: 28px; margin-bottom: 20px;">WWPD Events</h3>
+                <h3>Past Events</h3>
                 <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d; margin-bottom: 20px;">In early February 2025, 29 intrepid swimmers participated in the Cole Classic "the world's biggest ocean swim" under the WWPD (What Would Phoebe Do) banner. All participants wore custom yellow and white swimmers with WWPD branding. The previous day, 10 participants took part in the 10km Dee Why to Manly Sun Run.</p>
                 <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d;">These events brought together participants of all ages and helped build awareness of the foundation's mission to support causes close to Phoebe's heart.</p>
             </div>
@@ -1304,21 +1386,15 @@
             </div>
         </div>
 
-        <!-- Upcoming Events -->
-        <div style="padding: 0 60px;">
-            <h3 style="color: #f6a152; font-size: 28px; margin-bottom: 20px;">Upcoming Events 2026</h3>
-            <ul style="font-size: 17px; line-height: 2; color: #5a6c7d; margin-left: 20px; margin-bottom: 20px;">
-                <li><strong>Dee Why to Manly Sun Run</strong> - Saturday 31st January 2026 - <a href="https://raceroster.com/events/2026/110486/sun-run-2026" target="_blank" style="color: #f6a152;">Entries still open!</a></li>
-                <li><strong>Cole Classic Ocean Swim</strong> - Sunday 1st February 2026 - Entries closed</li>
-                <li><strong>Black Tie Gala Evening</strong> - Saturday 27th June 2026 at the Art Gallery of NSW</li>
-            </ul>
-            <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d; margin-bottom: 20px;">Join Team WWPD or support the foundation through donations at: <a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank" style="color: #f6a152;">phoebe-dawson-foundation.grassrootz.com</a></p>
-            <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d;">Following the January events, join us for a BBQ and gathering at Little Manly.</p>
-        </div>
-
         <!-- Recent Contributions -->
-        <div>
-            <h3 style="color: #f6a152; font-size: 28px; margin-bottom: 40px; padding: 0 60px;">Recent Contributions</h3>
+        <div id="contributions">
+            <div class="two-column-section">
+                <div>
+                    <h3>Recent Contributions</h3>
+                </div>
+                <div>
+                </div>
+            </div>
             
             <!-- Bear Cottage -->
             <div class="two-column-section">
@@ -1365,7 +1441,7 @@
         </div>
 
         <!-- Final Message -->
-        <div style="background: linear-gradient(135deg, #fff3e8 0%, #ffe4cd 100%); padding: 40px 60px; border-left: 5px solid #f6a152; margin: 0 60px;">
+        <div style="display: none; background: linear-gradient(135deg, #fff3e8 0%, #ffe4cd 100%); padding: 40px 60px; border-left: 5px solid #f6a152; margin: 0 60px;">
             <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d; margin-bottom: 20px;">The Phoebe Dawson Foundation is not restricted in how funds will be raised, but be assured it will be fun - just as our Sunshine Girl would want. Since losing Phoebe, our family has experienced extraordinary expressions of love and support from so many. On behalf of us all, I thank you.</p>
             <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d;">Please share this with anyone who might be interested in joining our community of compassion and joy.</p>
         </div>
