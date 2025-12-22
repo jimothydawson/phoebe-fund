@@ -338,6 +338,46 @@
             margin-bottom: 0;
         }
 
+        /* Four Quadrant Layout for Benches */
+        .four-quadrant-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 0;
+            margin-bottom: 0;
+        }
+
+        .four-quadrant-section > div {
+            padding: 0;
+        }
+
+        .four-quadrant-section > div:has(h4),
+        .four-quadrant-section > div:has(p) {
+            padding: 60px;
+        }
+
+        .four-quadrant-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .four-quadrant-section h4 {
+            color: #2c3e50;
+            font-size: 22px;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .four-quadrant-section p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #5a6c7d;
+            margin-bottom: 0;
+        }
+
         .update-content p {
             font-size: 17px;
             line-height: 1.8;
@@ -906,6 +946,16 @@
                 padding: 30px;
             }
 
+            .four-quadrant-section {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .four-quadrant-section > div:has(h4),
+            .four-quadrant-section > div:has(p) {
+                padding: 30px;
+            }
+
             .container {
                 padding: 60px 20px;
             }
@@ -1216,24 +1266,34 @@
         <div>
             <h3 style="color: #f6a152; font-size: 28px; margin-bottom: 40px; padding: 0 60px;">Recent Contributions</h3>
             
-            <div class="two-column-section">
+            <!-- Cook Park - 4 Quadrants -->
+            <div class="four-quadrant-section">
                 <div>
                     <img src="assets/CookPark.jpg" alt="Memorial Picnic Table and Bench at Cook Park, Orange">
-                    <img src="assets/manly-plaque.jpeg" alt="Cook Park Memorial Plaque">
                 </div>
                 <div>
-                    <h4 style="color: #2c3e50; font-size: 22px; margin-bottom: 15px;">Cook Park, Orange</h4>
+                    <h4>Cook Park, Orange</h4>
+                </div>
+                <div>
                     <p>Funded the erection of a picnic table and bench adjacent to the fernery - the location where Tim proposed to Phoebe.</p>
+                </div>
+                <div>
+                    <img src="assets/manly-plaque.jpeg" alt="Cook Park Memorial Plaque">
                 </div>
             </div>
 
-            <div class="two-column-section">
+            <!-- Little Manly - 4 Quadrants -->
+            <div class="four-quadrant-section">
                 <div>
-                    <h4 style="color: #2c3e50; font-size: 22px; margin-bottom: 15px;">Little Manly</h4>
+                    <img src="assets/LittleManly.jpg" alt="Phoebe's Memorial Bench at Little Manly">
+                </div>
+                <div>
+                    <h4>Little Manly</h4>
+                </div>
+                <div>
                     <p>Installed a park bench at the top of the park below the carpark and looking out across the harbour - where Phoebe and Tim were married.</p>
                 </div>
                 <div>
-                    <img src="assets/LittleManly.jpg" alt="Phoebe's Memorial Bench at Little Manly">
                     <img src="assets/cook-plaque.jpeg" alt="Little Manly Memorial Plaque">
                 </div>
             </div>
