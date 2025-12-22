@@ -45,8 +45,8 @@
             z-index: 1;
             text-align: center;
             color: white;
-            max-width: 900px;
-            padding: 40px 20px;
+            max-width: 100%;
+            padding: 40px 60px;
             animation: fadeIn 1.2s ease-in;
         }
 
@@ -81,7 +81,7 @@
             align-items: center;
             justify-content: center;
             font-size: 42px;
-            color: #F4C430;
+            color: #f6a152;
             font-weight: 700;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
             letter-spacing: 2px;
@@ -104,7 +104,7 @@
 
         /* Navigation */
         nav {
-            background: rgba(244, 196, 48, 0.98);
+            background: rgba(246, 161, 82, 0.98);
             backdrop-filter: blur(10px);
             padding: 0;
             position: sticky;
@@ -114,12 +114,12 @@
         }
 
         .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
+            max-width: 100%;
+            margin: 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 60px;
         }
 
         .nav-logo {
@@ -184,9 +184,9 @@
 
         /* Main Content */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 30px;
+            max-width: 100%;
+            margin: 0;
+            padding: 80px 60px;
         }
 
         section {
@@ -195,7 +195,7 @@
 
         h2 {
             font-size: 42px;
-            color: #F4C430;
+            color: #f6a152;
             margin-bottom: 50px;
             text-align: center;
             font-weight: 300;
@@ -212,7 +212,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background: linear-gradient(90deg, transparent, #F4C430, transparent);
+            background: linear-gradient(90deg, transparent, #f6a152, transparent);
         }
 
         .mission {
@@ -244,7 +244,7 @@
             background: white;
             padding: 40px 35px;
             border-radius: 12px;
-            border-top: 4px solid #F4C430;
+            border-top: 4px solid #f6a152;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
             transition: all 0.4s ease;
         }
@@ -283,7 +283,7 @@
         .story-image {
             flex: 0 0 350px;
             height: 450px;
-            background: linear-gradient(135deg, #FFE8A3 0%, #F4C430 50%, #FFA500 100%);
+            background: linear-gradient(135deg, #fdd5b8 0%, #f6a152 50%, #e8823e 100%);
             border-radius: 20px;
             box-shadow: 0 15px 50px rgba(244, 196, 48, 0.3);
         }
@@ -301,13 +301,20 @@
 
         /* Foundation Update Section */
         .foundation-update {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            padding: 80px 30px;
+            background: #ffffff;
+            padding: 80px 60px;
         }
 
         .update-content {
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 100%;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .update-content > p:first-child {
+            grid-column: 1 / -1;
         }
 
         .update-content p {
@@ -320,7 +327,7 @@
         .update-highlights h3,
         .wwpd-events h3,
         .upcoming-events h3 {
-            color: #F4C430;
+            color: #f6a152;
             font-size: 24px;
             margin-bottom: 20px;
             font-weight: 500;
@@ -328,8 +335,8 @@
 
         .contribution-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 40px;
             margin-bottom: 50px;
         }
 
@@ -363,13 +370,13 @@
         /* Logo Section */
         .logo-section {
             background: white;
-            padding: 60px 30px;
+            padding: 60px 60px;
             text-align: center;
         }
 
         .logo-section img {
             width: 100%;
-            max-width: 1200px;
+            max-width: 100%;
             height: auto;
         }
 
@@ -405,7 +412,7 @@
         }
 
         .upcoming-events a {
-            color: #F4C430;
+            color: #f6a152;
             text-decoration: none;
             font-weight: 500;
         }
@@ -415,10 +422,10 @@
         }
 
         .foundation-message {
-            background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+            background: linear-gradient(135deg, #fff3e8 0%, #ffe4cd 100%);
             padding: 30px;
             border-radius: 12px;
-            border-left: 5px solid #F4C430;
+            border-left: 5px solid #f6a152;
         }
 
         /* Board Section */
@@ -447,7 +454,7 @@
         .member-photo {
             width: 180px;
             height: 180px;
-            background: linear-gradient(135deg, #FFE8A3 0%, #F4C430 50%, #FFA500 100%);
+            background: linear-gradient(135deg, #fdd5b8 0%, #f6a152 50%, #e8823e 100%);
             border-radius: 50%;
             margin: 0 auto 25px;
             box-shadow: 0 8px 30px rgba(244, 196, 48, 0.25);
@@ -468,7 +475,7 @@
 
         /* Quote Section */
         .quote-section {
-            background: linear-gradient(135deg, #F4C430 0%, #FFA500 100%);
+            background: linear-gradient(135deg, #f6a152 0%, #e8823e 100%);
             color: white;
             padding: 90px 30px;
             text-align: center;
@@ -528,7 +535,7 @@
 
         .donate-button {
             display: inline-block;
-            background: linear-gradient(135deg, #F4C430 0%, #FFA500 100%);
+            background: linear-gradient(135deg, #f6a152 0%, #e8823e 100%);
             color: white;
             padding: 18px 50px;
             text-decoration: none;
@@ -623,7 +630,7 @@
         }
 
         .required {
-            color: #F4C430;
+            color: #f6a152;
         }
 
         .form-input {
@@ -638,7 +645,7 @@
 
         .form-input:focus {
             outline: none;
-            border-color: #F4C430;
+            border-color: #f6a152;
             background: white;
             box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
         }
@@ -654,7 +661,7 @@
 
         .submit-button {
             width: 100%;
-            background: linear-gradient(135deg, #F4C430 0%, #FFA500 100%);
+            background: linear-gradient(135deg, #f6a152 0%, #e8823e 100%);
             color: white;
             padding: 18px 40px;
             border: none;
@@ -694,7 +701,7 @@
             text-align: center;
             font-size: 28px;
             font-weight: 600;
-            color: #F4C430;
+            color: #f6a152;
             margin: 30px 0 20px;
         }
 
@@ -715,13 +722,13 @@
             padding: 20px;
             background: #f8f9fa;
             border-radius: 8px;
-            border-left: 4px solid #F4C430;
+            border-left: 4px solid #f6a152;
         }
 
         .item-entry::before {
             content: counter(item-counter) ". ";
             font-weight: 600;
-            color: #F4C430;
+            color: #f6a152;
             font-size: 18px;
             margin-right: 8px;
         }
@@ -747,7 +754,7 @@
 
         .add-item-button {
             width: 100%;
-            background: linear-gradient(135deg, #F4C430 0%, #FFA500 100%);
+            background: linear-gradient(135deg, #f6a152 0%, #e8823e 100%);
             color: white;
             padding: 15px 35px;
             border: none;
@@ -773,7 +780,7 @@
             background: #f8f9fa;
             border-radius: 8px;
             margin-bottom: 10px;
-            border-left: 4px solid #F4C430;
+            border-left: 4px solid #f6a152;
         }
 
         .order-item-info {
@@ -793,7 +800,7 @@
 
         .order-item-price {
             font-weight: 700;
-            color: #F4C430;
+            color: #f6a152;
             margin-right: 15px;
             font-size: 18px;
         }
@@ -806,7 +813,7 @@
         }
 
         .wwpd-badge {
-            background: linear-gradient(135deg, #F4C430 0%, #FFA500 100%);
+            background: linear-gradient(135deg, #f6a152 0%, #e8823e 100%);
             color: white;
             padding: 8px 16px;
             border-radius: 20px;
@@ -863,6 +870,11 @@
                 height: 350px;
             }
 
+            .update-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
             .contribution-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -876,6 +888,18 @@
                 padding: 20px;
             }
 
+            .container {
+                padding: 60px 20px;
+            }
+
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .foundation-update {
+                padding: 60px 20px;
+            }
+
             .hamburger {
                 display: flex;
             }
@@ -885,7 +909,7 @@
                 left: -100%;
                 top: 70px;
                 flex-direction: column;
-                background-color: rgba(244, 196, 48, 0.98);
+                background-color: rgba(246, 161, 82, 0.98);
                 width: 100%;
                 text-align: center;
                 transition: 0.3s;
@@ -921,7 +945,7 @@
 
         /* Price List Styles */
         .price-list button:hover {
-            background: #FFA500;
+            background: #e8823e;
         }
 
             .container {
@@ -1015,12 +1039,12 @@
                 </p>
 
                 <div class="price-list" style="margin-top: 30px; text-align: center;">
-                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Mens - $50</strong> <button onclick="scrollToElement('mens-item')" style="background: #F4C430; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
-                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Boys - $45</strong> <button onclick="scrollToElement('mens-item')" style="background: #F4C430; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
-                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Womens (Thick Strap) - $95</strong> <button onclick="scrollToElement('womens-thick-item')" style="background: #F4C430; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
-                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Womens (Thin Strap) - $95</strong> <button onclick="scrollToElement('womens-thin-item')" style="background: #F4C430; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
-                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Girls - $65</strong> <button onclick="scrollToElement('womens-thick-item')" style="background: #F4C430; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
-                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Bucket Hat - $45</strong> <button onclick="scrollToElement('bucket-hat-item')" style="background: #F4C430; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
+                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Mens - $50</strong> <button onclick="scrollToElement('mens-item')" style="background: #f6a152; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
+                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Boys - $45</strong> <button onclick="scrollToElement('mens-item')" style="background: #f6a152; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
+                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Womens (Thick Strap) - $95</strong> <button onclick="scrollToElement('womens-thick-item')" style="background: #f6a152; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
+                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Womens (Thin Strap) - $95</strong> <button onclick="scrollToElement('womens-thin-item')" style="background: #f6a152; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
+                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Girls - $65</strong> <button onclick="scrollToElement('womens-thick-item')" style="background: #f6a152; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
+                    <p style="font-size: 18px; margin-bottom: 15px;"><strong>Bucket Hat - $45</strong> <button onclick="scrollToElement('bucket-hat-item')" style="background: #f6a152; color: white; border: none; padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; margin-left: 10px;">VIEW</button></p>
                 </div>
             </div>
 
@@ -1238,7 +1262,7 @@
         </div>
 
         <div class="container" style="margin-top: 60px; text-align: center;">
-            <h3 style="color: #F4C430; margin-bottom: 20px;">Founding Committee</h3>
+            <h3 style="color: #f6a152; margin-bottom: 20px;">Founding Committee</h3>
             <p style="font-size: 16px; color: #666;">
                 [Name] • [Name] • [Name] • [Name] • [Name] • [Name]
             </p>
