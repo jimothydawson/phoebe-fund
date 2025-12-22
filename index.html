@@ -20,7 +20,7 @@
 
         /* Header */
         header {
-            background: url('banner.jpg');
+            background: url('assets/phoebe.avif');
             background-size: cover;
             background-position: center;
             min-height: 70vh;
@@ -30,24 +30,8 @@
             justify-content: center;
         }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
         .header-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            color: white;
-            max-width: 100%;
-            padding: 40px 60px;
-            animation: fadeIn 1.2s ease-in;
+            display: none;
         }
 
         .header-logo {
@@ -1025,11 +1009,6 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="header-content">
-            <div class="wwpd">What Would Phoebe Do?</div>
-            <h1>Phoebe Dawson Foundation</h1>
-            <p class="tagline">Continuing Phoebe's legacy of compassion and care</p>
-        </div>
     </header>
 
     <!-- Navigation -->
@@ -1209,18 +1188,6 @@
                 <h3>Our Mission</h3>
                 <p>Our Foundation is dedicated to carrying Phoebe's legacy forward by raising awareness and funds for under-supported charities and organisations, with a focus on supporting children, rural communities, and the nursing profession.</p>
                 <p style="font-style: italic;">Through this Foundation, Phoebe's spirit continues to guide us.</p>
-            </div>
-        </div>
-
-        <!-- About Us + Phoebe Image -->
-        <div class="two-column-section">
-            <div>
-                <h3>About Us</h3>
-                <p>Our Sunshine girl, Phoebe Kate Barnet Dawson - a wife, daughter, sister, friend, and gentle force of light whose kindness reached far beyond her years who was tragically and unexpectedly taken from us in February 2024.</p>
-                <p>Phoebe's husband, Tim, said his wife "lived for her family, friends and community above all else". The Phoebe Dawson Foundation is committed to bringing her love, care, compassion, spirit and adventure to our work by connecting with community and giving back.</p>
-            </div>
-            <div>
-                <img src="assets/phoebe.avif" alt="Phoebe Dawson">
             </div>
         </div>
 
