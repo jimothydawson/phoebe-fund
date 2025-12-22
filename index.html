@@ -305,51 +305,36 @@
             padding: 80px 60px;
         }
 
-        .update-content {
-            max-width: 100%;
-            margin: 0;
+        /* Simple Two-Column Layout for Content Sections */
+        .two-column-section {
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 60px;
-            align-items: start;
+            align-items: center;
+            margin-bottom: 80px;
         }
 
-        .logo-column {
-            position: sticky;
-            top: 100px;
-        }
-
-        .logo-column img {
+        .two-column-section img {
             width: 100%;
             height: auto;
         }
 
-        .mission-column {
-            background: linear-gradient(135deg, #fff3e8 0%, #ffe4cd 100%);
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 5px solid #f6a152;
-            position: sticky;
-            top: 100px;
-        }
-
-        .mission-column h3 {
+        .two-column-section h3 {
             color: #f6a152;
-            font-size: 24px;
+            font-size: 28px;
             margin-bottom: 20px;
             font-weight: 500;
         }
 
-        .mission-column p {
-            font-size: 16px;
+        .two-column-section p {
+            font-size: 17px;
             line-height: 1.8;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #5a6c7d;
         }
 
-        .mission-column p:last-child {
+        .two-column-section p:last-child {
             margin-bottom: 0;
-            font-style: italic;
         }
 
         .update-content p {
@@ -905,31 +890,9 @@
                 height: 350px;
             }
 
-            .update-content {
+            .two-column-section {
                 grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .logo-column,
-            .mission-column {
-                position: static;
-            }
-
-            .mission-column {
-                order: -1;
-            }
-
-            .contribution-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .contribution-item {
-                padding: 20px;
-            }
-
-            .foundation-message {
-                padding: 20px;
+                gap: 30px;
             }
 
             .container {
@@ -1211,70 +1174,97 @@
         </div>
     </section>
 
-    <!-- Foundation Update Section -->
+    <!-- Main Content Section -->
     <section class="foundation-update" id="update">
-        <div class="container">
-            <h2>A Note from James Barnet</h2>
-            <div class="update-content">
-                <div class="logo-column">
-                    <img src="assets/logo-square.jpeg" alt="Phoebe Dawson Foundation Logo">
-                </div>
-                <div class="content-column">
-                    <p>This is an update from Phoebe's father, James Barnet, on recent developments and future plans for the Phoebe Dawson Foundation.</p>
+        
+        <!-- Logo + Mission -->
+        <div class="two-column-section">
+            <div>
+                <img src="assets/logo-square.jpeg" alt="Phoebe Dawson Foundation Logo">
+            </div>
+            <div>
+                <h3>Our Mission</h3>
+                <p>Our Foundation is dedicated to carrying Phoebe's legacy forward by raising awareness and funds for under-supported charities and organisations, with a focus on supporting children, rural communities, and the nursing profession.</p>
+                <p style="font-style: italic;">Through this Foundation, Phoebe's spirit continues to guide us.</p>
+            </div>
+        </div>
 
-                    <div class="update-highlights">
-                    <h3>Recent Contributions</h3>
-                    <div class="contribution-grid">
-                        <div class="contribution-item">
-                            <img src="assets/CookPark.jpg" alt="Memorial Picnic Table and Bench at Cook Park, Orange" class="contribution-image">
-                            <h4>Cook Park, Orange</h4>
-                            <p>Funded the erection of a picnic table and bench adjacent to the fernery - the location where Tim proposed to Phoebe.</p>
-                            <img src="assets/cook-plaque.jpeg" alt="Cook Park Memorial Plaque" class="plaque-image">
-                        </div>
-                        <div class="contribution-item">
-                            <img src="assets/LittleManly.jpg" alt="Phoebe's Memorial Bench at Little Manly" class="contribution-image">
-                            <h4>Little Manly</h4>
-                            <p>Installed a park bench at the top of the park below the carpark and looking out across the harbour - where Phoebe and Tim were married.</p>
-                            <img src="assets/manly-plaque.jpeg" alt="Little Manly Memorial Plaque" class="plaque-image">
-                        </div>
-                        <div class="contribution-item">
-                            <img src="assets/BearCottage-logo_0.svg" alt="Bear Cottage Logo" class="contribution-image">
-                            <h4>Bear Cottage, Manly</h4>
-                            <p>Donated towards a mechanised awning over the outdoor deck area, providing comfort for children and families during palliative care visits.</p>
-                        </div>
-                    </div>
-                </div>
+        <!-- About Us + Phoebe Image -->
+        <div class="two-column-section">
+            <div>
+                <h3>About Us</h3>
+                <p>Our Sunshine girl, Phoebe Kate Barnet Dawson - a wife, daughter, sister, friend, and gentle force of light whose kindness reached far beyond her years who was tragically and unexpectedly taken from us in February 2024.</p>
+                <p>Phoebe's husband, Tim, said his wife "lived for her family, friends and community above all else". The Phoebe Dawson Foundation is committed to bringing her love, care, compassion, spirit and adventure to our work by connecting with community and giving back.</p>
+            </div>
+            <div>
+                <img src="assets/phoebe.avif" alt="Phoebe Dawson">
+            </div>
+        </div>
 
-                <div class="wwpd-events">
-                    <h3>WWPD Events</h3>
-                    <p>In early February 2025, 29 intrepid swimmers participated in the Cole Classic "the world's biggest ocean swim" under the WWPD (What Would Phoebe Do) banner. All participants wore custom yellow and white swimmers with WWPD branding. The previous day, 10 participants took part in the 10km Dee Why to Manly Sun Run.</p>
-                    <p>These events brought together participants of all ages and helped build awareness of the foundation's mission to support causes close to Phoebe's heart.</p>
-                </div>
+        <h2 style="text-align: center; margin-bottom: 60px;">A Note from James Barnet</h2>
 
-                <div class="upcoming-events">
-                    <h3>Upcoming Events 2026</h3>
-                    <ul>
-                        <li><strong>Dee Why to Manly Sun Run</strong> - Saturday 31st January 2026 (10 participants registered)</li>
-                        <li><strong>Cole Classic Ocean Swim</strong> - Sunday 1st February 2026 (35 participants registered)</li>
-                        <li><strong>Black Tie Gala Evening</strong> - Saturday 27th June 2026 at the Art Gallery of NSW</li>
-                    </ul>
-                    <p>Entries are still open! Join Team WWPD or support the foundation through donations at: <a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank">phoebe-dawson-foundation.grassrootz.com</a></p>
-                    <p>Following the January events, join us for a BBQ and gathering at Little Manly.</p>
+        <!-- Recent Contributions -->
+        <div style="margin-bottom: 60px;">
+            <h3 style="color: #f6a152; font-size: 28px; margin-bottom: 40px;">Recent Contributions</h3>
+            
+            <div class="two-column-section">
+                <div>
+                    <img src="assets/CookPark.jpg" alt="Memorial Picnic Table and Bench at Cook Park, Orange">
+                    <img src="assets/cook-plaque.jpeg" alt="Cook Park Memorial Plaque" style="margin-top: 20px;">
                 </div>
-
-                    <div class="foundation-message">
-                        <p>The Phoebe Dawson Foundation is not restricted in how funds will be raised, but be assured it will be fun - just as our Sunshine Girl would want. Since losing Phoebe, our family has experienced extraordinary expressions of love and support from so many. On behalf of us all, I thank you.</p>
-                        <p>Please share this with anyone who might be interested in joining our community of compassion and joy.</p>
-                    </div>
+                <div>
+                    <h4 style="color: #2c3e50; font-size: 22px; margin-bottom: 15px;">Cook Park, Orange</h4>
+                    <p>Funded the erection of a picnic table and bench adjacent to the fernery - the location where Tim proposed to Phoebe.</p>
                 </div>
+            </div>
 
-                <div class="mission-column">
-                    <h3>Our Mission</h3>
-                    <p>Our Foundation is dedicated to carrying Phoebe's legacy forward by raising awareness and funds for under-supported charities and organisations, with a focus on supporting children, rural communities, and the nursing profession.</p>
-                    <p>Through this Foundation, Phoebe's spirit continues to guide us.</p>
+            <div class="two-column-section">
+                <div>
+                    <h4 style="color: #2c3e50; font-size: 22px; margin-bottom: 15px;">Little Manly</h4>
+                    <p>Installed a park bench at the top of the park below the carpark and looking out across the harbour - where Phoebe and Tim were married.</p>
+                </div>
+                <div>
+                    <img src="assets/LittleManly.jpg" alt="Phoebe's Memorial Bench at Little Manly">
+                    <img src="assets/manly-plaque.jpeg" alt="Little Manly Memorial Plaque" style="margin-top: 20px;">
+                </div>
+            </div>
+
+            <div class="two-column-section">
+                <div>
+                    <img src="assets/BearCottage-logo_0.svg" alt="Bear Cottage Logo" style="background: #f8f9fa; padding: 40px;">
+                </div>
+                <div>
+                    <h4 style="color: #2c3e50; font-size: 22px; margin-bottom: 15px;">Bear Cottage, Manly</h4>
+                    <p>Donated towards a mechanised awning over the outdoor deck area, providing comfort for children and families during palliative care visits.</p>
                 </div>
             </div>
         </div>
+
+        <!-- WWPD Events -->
+        <div style="margin-bottom: 60px;">
+            <h3 style="color: #f6a152; font-size: 28px; margin-bottom: 20px;">WWPD Events</h3>
+            <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d; margin-bottom: 20px;">In early February 2025, 29 intrepid swimmers participated in the Cole Classic "the world's biggest ocean swim" under the WWPD (What Would Phoebe Do) banner. All participants wore custom yellow and white swimmers with WWPD branding. The previous day, 10 participants took part in the 10km Dee Why to Manly Sun Run.</p>
+            <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d;">These events brought together participants of all ages and helped build awareness of the foundation's mission to support causes close to Phoebe's heart.</p>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div style="margin-bottom: 60px;">
+            <h3 style="color: #f6a152; font-size: 28px; margin-bottom: 20px;">Upcoming Events 2026</h3>
+            <ul style="font-size: 17px; line-height: 2; color: #5a6c7d; margin-left: 20px; margin-bottom: 20px;">
+                <li><strong>Dee Why to Manly Sun Run</strong> - Saturday 31st January 2026 (10 participants registered)</li>
+                <li><strong>Cole Classic Ocean Swim</strong> - Sunday 1st February 2026 (35 participants registered)</li>
+                <li><strong>Black Tie Gala Evening</strong> - Saturday 27th June 2026 at the Art Gallery of NSW</li>
+            </ul>
+            <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d; margin-bottom: 20px;">Entries are still open! Join Team WWPD or support the foundation through donations at: <a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank" style="color: #f6a152;">phoebe-dawson-foundation.grassrootz.com</a></p>
+            <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d;">Following the January events, join us for a BBQ and gathering at Little Manly.</p>
+        </div>
+
+        <!-- Final Message -->
+        <div style="background: linear-gradient(135deg, #fff3e8 0%, #ffe4cd 100%); padding: 40px; border-radius: 12px; border-left: 5px solid #f6a152;">
+            <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d; margin-bottom: 20px;">The Phoebe Dawson Foundation is not restricted in how funds will be raised, but be assured it will be fun - just as our Sunshine Girl would want. Since losing Phoebe, our family has experienced extraordinary expressions of love and support from so many. On behalf of us all, I thank you.</p>
+            <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d;">Please share this with anyone who might be interested in joining our community of compassion and joy.</p>
+        </div>
+
     </section>
 
     <!-- Quote Section -->
