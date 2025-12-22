@@ -312,7 +312,16 @@
             max-width: 400px;
             height: auto;
             display: block;
-            margin: 0 auto;
+        }
+
+        .two-column-section > div:first-child img {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .two-column-section > div:last-child img {
+            margin-left: 0;
+            margin-right: auto;
         }
 
         .two-column-section h3 {
@@ -357,7 +366,16 @@
             height: auto;
             object-fit: cover;
             display: block;
-            margin: 0 auto;
+        }
+
+        .four-quadrant-section > div:nth-child(1) img {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .four-quadrant-section > div:nth-child(4) img {
+            margin-left: 0;
+            margin-right: auto;
         }
 
         .four-quadrant-section h4 {
