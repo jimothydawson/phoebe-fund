@@ -299,10 +299,16 @@
             grid-template-columns: 1fr 1fr;
             gap: 0;
             align-items: center;
-            margin-bottom: 80px;
+            margin-bottom: 0;
         }
 
         .two-column-section > div {
+            padding: 0;
+        }
+
+        .two-column-section > div:has(h3),
+        .two-column-section > div:has(h4),
+        .two-column-section > div:has(p) {
             padding: 60px;
         }
 
@@ -889,6 +895,12 @@
             }
 
             .two-column-section > div {
+                padding: 0;
+            }
+
+            .two-column-section > div:has(h3),
+            .two-column-section > div:has(h4),
+            .two-column-section > div:has(p) {
                 padding: 30px;
             }
 
@@ -1199,13 +1211,13 @@
         </div>
 
         <!-- Recent Contributions -->
-        <div style="margin-bottom: 60px;">
+        <div>
             <h3 style="color: #f6a152; font-size: 28px; margin-bottom: 40px; padding: 0 60px;">Recent Contributions</h3>
             
             <div class="two-column-section">
                 <div>
                     <img src="assets/CookPark.jpg" alt="Memorial Picnic Table and Bench at Cook Park, Orange">
-                    <img src="assets/manly-plaque.jpeg" alt="Cook Park Memorial Plaque" style="margin-top: 20px;">
+                    <img src="assets/manly-plaque.jpeg" alt="Cook Park Memorial Plaque">
                 </div>
                 <div>
                     <h4 style="color: #2c3e50; font-size: 22px; margin-bottom: 15px;">Cook Park, Orange</h4>
@@ -1220,13 +1232,13 @@
                 </div>
                 <div>
                     <img src="assets/LittleManly.jpg" alt="Phoebe's Memorial Bench at Little Manly">
-                    <img src="assets/cook-plaque.jpeg" alt="Little Manly Memorial Plaque" style="margin-top: 20px;">
+                    <img src="assets/cook-plaque.jpeg" alt="Little Manly Memorial Plaque">
                 </div>
             </div>
 
             <div class="two-column-section">
                 <div>
-                    <img src="assets/BearCottage-logo_0.svg" alt="Bear Cottage Logo" style="background: #f8f9fa; padding: 40px;">
+                    <img src="assets/BearCottage-logo_0.svg" alt="Bear Cottage Logo">
                 </div>
                 <div>
                     <h4 style="color: #2c3e50; font-size: 22px; margin-bottom: 15px;">Bear Cottage, Manly</h4>
@@ -1236,14 +1248,14 @@
         </div>
 
         <!-- WWPD Events -->
-        <div style="margin-bottom: 60px; padding: 0 60px;">
+        <div style="padding: 0 60px;">
             <h3 style="color: #f6a152; font-size: 28px; margin-bottom: 20px;">WWPD Events</h3>
             <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d; margin-bottom: 20px;">In early February 2025, 29 intrepid swimmers participated in the Cole Classic "the world's biggest ocean swim" under the WWPD (What Would Phoebe Do) banner. All participants wore custom yellow and white swimmers with WWPD branding. The previous day, 10 participants took part in the 10km Dee Why to Manly Sun Run.</p>
             <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d;">These events brought together participants of all ages and helped build awareness of the foundation's mission to support causes close to Phoebe's heart.</p>
         </div>
 
         <!-- Upcoming Events -->
-        <div style="margin-bottom: 60px; padding: 0 60px;">
+        <div style="padding: 0 60px;">
             <h3 style="color: #f6a152; font-size: 28px; margin-bottom: 20px;">Upcoming Events 2026</h3>
             <ul style="font-size: 17px; line-height: 2; color: #5a6c7d; margin-left: 20px; margin-bottom: 20px;">
                 <li><strong>Dee Why to Manly Sun Run</strong> - Saturday 31st January 2026 (10 participants registered)</li>
