@@ -30,6 +30,26 @@
             justify-content: center;
         }
 
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .header-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 150px;
+            height: auto;
+            z-index: 10;
+        }
+
         .header-content {
             display: none;
         }
@@ -1009,6 +1029,7 @@
 <body>
     <!-- Header -->
     <header>
+        <img src="assets/01_orange_logo_square.png" alt="Phoebe Dawson Foundation Logo" class="header-logo">
     </header>
 
     <!-- Navigation -->
@@ -1182,7 +1203,7 @@
         <!-- Logo + Mission -->
         <div class="two-column-section">
             <div>
-                <img src="assets/logo-square.jpeg" alt="Phoebe Dawson Foundation Logo">
+                <img src="assets/01_orange_logo_square.png" alt="Phoebe Dawson Foundation Logo">
             </div>
             <div>
                 <h3>Our Mission</h3>
