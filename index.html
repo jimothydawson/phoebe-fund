@@ -309,12 +309,47 @@
             max-width: 100%;
             margin: 0;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 2fr 1fr;
             gap: 60px;
+            align-items: start;
         }
 
-        .update-content > p:first-child {
-            grid-column: 1 / -1;
+        .logo-column {
+            position: sticky;
+            top: 100px;
+        }
+
+        .logo-column img {
+            width: 100%;
+            height: auto;
+        }
+
+        .mission-column {
+            background: linear-gradient(135deg, #fff3e8 0%, #ffe4cd 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #f6a152;
+            position: sticky;
+            top: 100px;
+        }
+
+        .mission-column h3 {
+            color: #f6a152;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .mission-column p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #5a6c7d;
+        }
+
+        .mission-column p:last-child {
+            margin-bottom: 0;
+            font-style: italic;
         }
 
         .update-content p {
@@ -875,6 +910,15 @@
                 gap: 40px;
             }
 
+            .logo-column,
+            .mission-column {
+                position: static;
+            }
+
+            .mission-column {
+                order: -1;
+            }
+
             .contribution-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -1020,11 +1064,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Logo Section -->
-    <section class="logo-section">
-        <img src="assets/logo-square.jpeg" alt="Phoebe Dawson Foundation Logo">
-    </section>
 
     <!-- Order Section -->
     <section class="order-section" id="budgy-smugglers" style="display: none;">
@@ -1177,9 +1216,13 @@
         <div class="container">
             <h2>A Note from James Barnet</h2>
             <div class="update-content">
-                <p>This is an update from Phoebe's father, James Barnet, on recent developments and future plans for the Phoebe Dawson Foundation.</p>
+                <div class="logo-column">
+                    <img src="assets/logo-square.jpeg" alt="Phoebe Dawson Foundation Logo">
+                </div>
+                <div class="content-column">
+                    <p>This is an update from Phoebe's father, James Barnet, on recent developments and future plans for the Phoebe Dawson Foundation.</p>
 
-                <div class="update-highlights">
+                    <div class="update-highlights">
                     <h3>Recent Contributions</h3>
                     <div class="contribution-grid">
                         <div class="contribution-item">
@@ -1219,9 +1262,16 @@
                     <p>Following the January events, join us for a BBQ and gathering at Little Manly.</p>
                 </div>
 
-                <div class="foundation-message">
-                    <p>The Phoebe Dawson Foundation is not restricted in how funds will be raised, but be assured it will be fun - just as our Sunshine Girl would want. Since losing Phoebe, our family has experienced extraordinary expressions of love and support from so many. On behalf of us all, I thank you.</p>
-                    <p>Please share this with anyone who might be interested in joining our community of compassion and joy.</p>
+                    <div class="foundation-message">
+                        <p>The Phoebe Dawson Foundation is not restricted in how funds will be raised, but be assured it will be fun - just as our Sunshine Girl would want. Since losing Phoebe, our family has experienced extraordinary expressions of love and support from so many. On behalf of us all, I thank you.</p>
+                        <p>Please share this with anyone who might be interested in joining our community of compassion and joy.</p>
+                    </div>
+                </div>
+
+                <div class="mission-column">
+                    <h3>Our Mission</h3>
+                    <p>Our Foundation is dedicated to carrying Phoebe's legacy forward by raising awareness and funds for under-supported charities and organisations, with a focus on supporting children, rural communities, and the nursing profession.</p>
+                    <p>Through this Foundation, Phoebe's spirit continues to guide us.</p>
                 </div>
             </div>
         </div>
