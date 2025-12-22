@@ -299,6 +299,11 @@
 
         .two-column-section > div {
             padding: 0;
+            border-right: 1px solid #f6a152;
+        }
+
+        .two-column-section > div:last-child {
+            border-right: none;
         }
 
         .two-column-section > div:has(h3),
@@ -352,6 +357,18 @@
 
         .four-quadrant-section > div {
             padding: 0;
+            border-right: 1px solid #f6a152;
+            border-bottom: 1px solid #f6a152;
+        }
+
+        .four-quadrant-section > div:nth-child(2),
+        .four-quadrant-section > div:nth-child(4) {
+            border-right: none;
+        }
+
+        .four-quadrant-section > div:nth-child(3),
+        .four-quadrant-section > div:nth-child(4) {
+            border-bottom: none;
         }
 
         .four-quadrant-section > div:has(h4),
