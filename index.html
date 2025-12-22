@@ -302,21 +302,26 @@
         /* Foundation Update Section */
         .foundation-update {
             background: #ffffff;
-            padding: 80px 60px;
+            padding: 80px 0;
         }
 
         /* Simple Two-Column Layout for Content Sections */
         .two-column-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 0;
             align-items: center;
             margin-bottom: 80px;
+        }
+
+        .two-column-section > div {
+            padding: 60px;
         }
 
         .two-column-section img {
             width: 100%;
             height: auto;
+            display: block;
         }
 
         .two-column-section h3 {
@@ -892,7 +897,11 @@
 
             .two-column-section {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 0;
+            }
+
+            .two-column-section > div {
+                padding: 30px;
             }
 
             .container {
@@ -904,7 +913,21 @@
             }
 
             .foundation-update {
-                padding: 60px 20px;
+                padding: 60px 0;
+            }
+
+            .foundation-update h2,
+            .foundation-update h3,
+            .foundation-update > div > h3 {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            .foundation-update > div {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+                margin-left: 20px !important;
+                margin-right: 20px !important;
             }
 
             .hamburger {
@@ -1201,11 +1224,11 @@
             </div>
         </div>
 
-        <h2 style="text-align: center; margin-bottom: 60px;">A Note from James Barnet</h2>
+        <h2 style="text-align: center; margin-bottom: 60px; padding: 0 60px;">A Note from James Barnet</h2>
 
         <!-- Recent Contributions -->
         <div style="margin-bottom: 60px;">
-            <h3 style="color: #f6a152; font-size: 28px; margin-bottom: 40px;">Recent Contributions</h3>
+            <h3 style="color: #f6a152; font-size: 28px; margin-bottom: 40px; padding: 0 60px;">Recent Contributions</h3>
             
             <div class="two-column-section">
                 <div>
@@ -1241,14 +1264,14 @@
         </div>
 
         <!-- WWPD Events -->
-        <div style="margin-bottom: 60px;">
+        <div style="margin-bottom: 60px; padding: 0 60px;">
             <h3 style="color: #f6a152; font-size: 28px; margin-bottom: 20px;">WWPD Events</h3>
             <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d; margin-bottom: 20px;">In early February 2025, 29 intrepid swimmers participated in the Cole Classic "the world's biggest ocean swim" under the WWPD (What Would Phoebe Do) banner. All participants wore custom yellow and white swimmers with WWPD branding. The previous day, 10 participants took part in the 10km Dee Why to Manly Sun Run.</p>
             <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d;">These events brought together participants of all ages and helped build awareness of the foundation's mission to support causes close to Phoebe's heart.</p>
         </div>
 
         <!-- Upcoming Events -->
-        <div style="margin-bottom: 60px;">
+        <div style="margin-bottom: 60px; padding: 0 60px;">
             <h3 style="color: #f6a152; font-size: 28px; margin-bottom: 20px;">Upcoming Events 2026</h3>
             <ul style="font-size: 17px; line-height: 2; color: #5a6c7d; margin-left: 20px; margin-bottom: 20px;">
                 <li><strong>Dee Why to Manly Sun Run</strong> - Saturday 31st January 2026 (10 participants registered)</li>
@@ -1260,7 +1283,7 @@
         </div>
 
         <!-- Final Message -->
-        <div style="background: linear-gradient(135deg, #fff3e8 0%, #ffe4cd 100%); padding: 40px; border-radius: 12px; border-left: 5px solid #f6a152;">
+        <div style="background: linear-gradient(135deg, #fff3e8 0%, #ffe4cd 100%); padding: 40px 60px; border-left: 5px solid #f6a152; margin: 0 60px;">
             <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d; margin-bottom: 20px;">The Phoebe Dawson Foundation is not restricted in how funds will be raised, but be assured it will be fun - just as our Sunshine Girl would want. Since losing Phoebe, our family has experienced extraordinary expressions of love and support from so many. On behalf of us all, I thank you.</p>
             <p style="font-size: 17px; line-height: 1.8; color: #5a6c7d;">Please share this with anyone who might be interested in joining our community of compassion and joy.</p>
         </div>
