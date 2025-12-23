@@ -1020,9 +1020,19 @@
             }
 
             .two-column-section {
-                grid-template-columns: 1fr;
-                gap: 0;
+                display: flex;
+                flex-direction: column;
                 border-bottom: none;
+            }
+
+            .two-column-section > div:has(img) {
+                order: 1;
+            }
+
+            .two-column-section > div:has(h3),
+            .two-column-section > div:has(h4),
+            .two-column-section > div:has(p):not(:has(img)) {
+                order: 2;
             }
 
             .two-column-section > div {
