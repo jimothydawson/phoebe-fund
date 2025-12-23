@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contributions - Phoebe Dawson Foundation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(246, 161, 82, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            height: 80px;
+        }
+
+        .nav-container {
+            max-width: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            height: 100%;
+        }
+
+        .nav-logo {
+            flex-shrink: 0;
+            height: 100%;
+        }
+
+        .nav-logo a {
+            display: block;
+            padding: 5px;
+            height: 100%;
+        }
+
+        .nav-logo img {
+            height: 65px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            flex: 1;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 20px 30px;
+            display: block;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 20px;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Header */
+        .page-header {
+            background: linear-gradient(135deg, #f6a152 0%, #e8823e 100%);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 100%;
+            margin: 0;
+            padding: 80px 60px;
+        }
+
+        h2 {
+            font-size: 42px;
+            color: #f6a152;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #f6a152, transparent);
+        }
+
+        /* Two Column Layout */
+        .two-column-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            align-items: center;
+            margin-bottom: 0;
+            border-bottom: 1px solid #f6a152;
+        }
+
+        .two-column-section > div {
+            padding: 0;
+            border-right: 1px solid #f6a152;
+        }
+
+        .two-column-section > div:last-child {
+            border-right: none;
+        }
+
+        .two-column-section > div:has(h4),
+        .two-column-section > div:has(h3),
+        .two-column-section > div:has(p) {
+            padding: 60px;
+        }
+
+        .two-column-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .two-column-section h3 {
+            color: #f6a152;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .two-column-section h4 {
+            color: #2c3e50;
+            font-size: 44px;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .two-column-section p {
+            font-size: 34px;
+            line-height: 1.8;
+            color: #5a6c7d;
+            margin-bottom: 0;
+        }
+
+        /* Four Quadrant Layout */
+        .four-quadrant-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 0;
+            margin-bottom: 0;
+            border-bottom: 1px solid #f6a152;
+        }
+
+        .four-quadrant-section > div {
+            padding: 0;
+            border-right: 1px solid #f6a152;
+        }
+
+        .four-quadrant-section > div:nth-child(1),
+        .four-quadrant-section > div:nth-child(2) {
+            border-bottom: 1px solid #f6a152;
+        }
+
+        .four-quadrant-section > div:nth-child(2),
+        .four-quadrant-section > div:nth-child(4) {
+            border-right: none;
+        }
+
+        .four-quadrant-section > div:has(h4),
+        .four-quadrant-section > div:has(p) {
+            padding: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .four-quadrant-section img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+
+        .four-quadrant-section > div:nth-child(1) img {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .four-quadrant-section > div:nth-child(4) img {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .four-quadrant-section h4 {
+            color: #2c3e50;
+            font-size: 44px;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .four-quadrant-section p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #5a6c7d;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 30px;
+            font-weight: 300;
+        }
+
+        footer p {
+            margin: 5px 0;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .container {
+                padding: 60px 20px;
+            }
+
+            .two-column-section {
+                grid-template-columns: 1fr;
+                gap: 0;
+                border-bottom: none;
+            }
+
+            .two-column-section > div {
+                padding: 0;
+                border-right: none;
+                border-bottom: none;
+            }
+
+            .two-column-section > div:has(h3),
+            .two-column-section > div:has(h4),
+            .two-column-section > div:has(p) {
+                padding: 30px;
+            }
+
+            .two-column-section h4 {
+                font-size: 22px;
+            }
+
+            .two-column-section p {
+                font-size: 17px;
+            }
+
+            .four-quadrant-section {
+                display: flex;
+                flex-direction: column;
+                border-bottom: none;
+            }
+
+            .four-quadrant-section > div {
+                border-right: none;
+                border-bottom: none;
+            }
+
+            .four-quadrant-section > div:nth-child(1),
+            .four-quadrant-section > div:nth-child(2) {
+                border-bottom: none;
+            }
+
+            .four-quadrant-section > div:nth-child(1) {
+                order: 2;
+            }
+
+            .four-quadrant-section > div:nth-child(2) {
+                order: 1;
+            }
+
+            .four-quadrant-section > div:nth-child(3) {
+                order: 3;
+            }
+
+            .four-quadrant-section > div:nth-child(4) {
+                order: 4;
+            }
+
+            .four-quadrant-section > div:has(h4),
+            .four-quadrant-section > div:has(p) {
+                padding: 30px;
+                display: flex;
+                align-items: center;
+            }
+
+            .four-quadrant-section h4 {
+                font-size: 22px;
+            }
+
+            .four-quadrant-section p {
+                font-size: 17px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: rgba(246, 161, 82, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                flex: none;
+            }
+
+            .nav-menu a {
+                padding: 15px 20px;
+                font-size: 13px;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="assets/06_white_logo_horizontal.png" alt="Phoebe Dawson Foundation">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contributions.html">Contributions</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="page-header">
+        <h1>Recent Contributions</h1>
+    </div>
+
+    <!-- Contributions Content -->
+    <div class="container">
+        <div id="contributions">
+            <!-- Bear Cottage -->
+            <div class="two-column-section">
+                <div>
+                    <h4 style="color: #2c3e50; margin-bottom: 15px;">Bear Cottage, Manly</h4>
+                    <p style="font-size: 17px;">Donated towards a mechanised awning over the outdoor deck area, providing comfort for children and families during palliative care visits.</p>
+                </div>
+                <div>
+                    <img src="assets/BearCottage-logo_0.svg" alt="Bear Cottage Logo">
+                </div>
+            </div>
+
+            <!-- Cook Park - 4 Quadrants -->
+            <div class="four-quadrant-section">
+                <div>
+                    <img src="assets/CookPark.jpg" alt="Memorial Picnic Table and Bench at Cook Park, Orange">
+                </div>
+                <div>
+                    <h4>Cook Park, Orange</h4>
+                </div>
+                <div>
+                    <p>Funded the erection of a picnic table and bench adjacent to the fernery - the location where Tim proposed to Phoebe.</p>
+                </div>
+                <div>
+                    <img src="assets/manly-plaque.jpeg" alt="Cook Park Memorial Plaque">
+                </div>
+            </div>
+
+            <!-- Little Manly - 4 Quadrants -->
+            <div class="four-quadrant-section">
+                <div>
+                    <img src="assets/LittleManly.jpg" alt="Phoebe's Memorial Bench at Little Manly">
+                </div>
+                <div>
+                    <h4>Little Manly</h4>
+                </div>
+                <div>
+                    <p>Installed a park bench at the top of the park below the carpark and looking out across the harbour - where Phoebe and Tim were married.</p>
+                </div>
+                <div>
+                    <img src="assets/cook-plaque.jpeg" alt="Little Manly Memorial Plaque">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Phoebe Dawson Foundation. All rights reserved.</p>
+        <p>ABN: 27 811 061 900 | James Michael Genadi Dawson</p>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a nav link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
