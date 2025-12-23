@@ -119,9 +119,9 @@
 
         /* Container */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 60px;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
         }
 
         h2 {
@@ -153,16 +153,38 @@
             font-weight: 500;
         }
 
-        /* Event Sections */
-        .event-section {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-            margin-bottom: 40px;
+        /* Two Column Layout */
+        .two-column-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            align-items: center;
+            margin-bottom: 0;
+            border-bottom: 1px solid #f6a152;
         }
 
-        .event-section ul {
+        .two-column-section > div {
+            padding: 0;
+            border-right: 1px solid #f6a152;
+        }
+
+        .two-column-section > div:last-child {
+            border-right: none;
+        }
+
+        .two-column-section > div:has(h3),
+        .two-column-section > div:has(ul),
+        .two-column-section > div:has(p) {
+            padding: 60px;
+        }
+
+        .two-column-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .two-column-section ul {
             font-size: 17px;
             line-height: 2;
             color: #5a6c7d;
@@ -170,29 +192,99 @@
             margin-bottom: 20px;
         }
 
-        .event-section p {
+        .two-column-section p {
             font-size: 17px;
             line-height: 1.8;
             color: #5a6c7d;
             margin-bottom: 20px;
         }
 
-        .event-section a {
+        .two-column-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .two-column-section a {
             color: #f6a152;
         }
 
-        .event-section a:hover {
+        .two-column-section a:hover {
             text-decoration: underline;
         }
 
-        .event-image {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            margin: 30px auto;
-            display: block;
+        .two-column-section a.entry-button {
+            color: white;
+            text-decoration: none;
+        }
+
+        .two-column-section a.entry-button:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Donate Section */
+        .donate-section {
+            text-align: center;
+            padding: 60px;
+            background: linear-gradient(135deg, #fff3e8 0%, #ffe4cd 100%);
+            border-bottom: 1px solid #f6a152;
+        }
+
+        .donate-section h3 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .donate-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #5a6c7d;
+            margin-bottom: 25px;
+        }
+
+        .donate-button {
+            display: inline-block;
+            background: #f6a152;
+            color: white;
+            text-decoration: none;
+            padding: 25px 60px;
+            font-size: 24px;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(246, 161, 82, 0.3);
+        }
+
+        .donate-button:hover {
+            background: #e8823e;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(246, 161, 82, 0.4);
+        }
+
+        /* Entry Button */
+        .entry-button {
+            display: inline-block;
+            background: #f6a152;
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .entry-button:hover {
+            background: #e8823e;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(246, 161, 82, 0.3);
         }
 
         /* Footer */
@@ -220,11 +312,35 @@
             }
 
             .container {
-                padding: 60px 20px;
+                padding: 0;
             }
 
-            .event-section {
-                padding: 25px;
+            .two-column-section {
+                grid-template-columns: 1fr;
+                gap: 0;
+                border-bottom: none;
+            }
+
+            .two-column-section > div {
+                padding: 0;
+                border-right: none;
+                border-bottom: none;
+            }
+
+            .two-column-section > div:has(h3),
+            .two-column-section > div:has(ul),
+            .two-column-section > div:has(p) {
+                padding: 30px;
+            }
+
+            .donate-section {
+                padding: 40px 20px;
+            }
+
+            .donate-button {
+                padding: 20px 40px;
+                font-size: 20px;
+                letter-spacing: 1px;
             }
 
             .hamburger {
@@ -300,24 +416,72 @@
 
     <!-- Events Content -->
     <div class="container">
-        <!-- Upcoming Events -->
-        <div class="event-section">
-            <h3>Upcoming Events 2026</h3>
-            <ul>
-                <li><strong>Dee Why to Manly Sun Run</strong> - Saturday 31st January 2026 - <a href="https://raceroster.com/events/2026/110486/sun-run-2026" target="_blank">Entries still open!</a></li>
-                <li><strong>Cole Classic Ocean Swim</strong> - Sunday 1st February 2026 - Entries closed</li>
-                <li><strong>Black Tie Gala Evening</strong> - Saturday 27th June 2026 at the Art Gallery of NSW</li>
-            </ul>
-            <p>Join Team WWPD or support the foundation through donations at: <a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank">phoebe-dawson-foundation.grassrootz.com</a></p>
-            <p>Following the January events, join us for a BBQ and gathering at Little Manly.</p>
+        <!-- Sun Run -->
+        <div class="two-column-section">
+            <div>
+                <img src="assets/sun-run-2025-2.jpg" alt="Dee Why to Manly Sun Run">
+            </div>
+            <div>
+                <h3>Dee Why to Manly Sun Run</h3>
+                <p><strong>Saturday 31st January 2026</strong></p>
+                <p>Join Team WWPD for the 10km Dee Why to Manly Sun Run along Sydney's beautiful Northern Beaches. This scenic coastal run brings together our community to support causes close to Phoebe's heart.</p>
+                <p><a href="https://raceroster.com/events/2026/110486/sun-run-2026" target="_blank" class="entry-button">Entries still open!</a></p>
+            </div>
+        </div>
+
+        <!-- Donate Section -->
+        <div class="donate-section">
+            <h3>Support Our Fundraisers</h3>
+            <p>Donate to Team WWPD's Sun Run or Cole Classic fundraising efforts and help us support causes close to Phoebe's heart.</p>
+            <a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank" class="donate-button">Donate to Our Fundraisers</a>
+        </div>
+
+        <!-- Cole Classic -->
+        <div class="two-column-section">
+            <div>
+                <h3>Cole Classic Ocean Swim</h3>
+                <p><strong>Sunday 1st February 2026</strong></p>
+                <p>Entries closed</p>
+                <p>The world's biggest ocean swim returns! Team WWPD will be swimming in custom yellow and white swimmers to honour Phoebe and raise awareness for the foundation.</p>
+                <p>Following the January events, join us for a BBQ and gathering at Little Manly.</p>
+            </div>
+            <div>
+                <img src="assets/cole-classic-1.jpg" alt="Cole Classic Ocean Swim">
+            </div>
+        </div>
+
+        <!-- Gala Evening -->
+        <div class="two-column-section">
+            <div>
+                <img src="assets/Art_Gallery_of_New_South_Wales,_2022,_09.jpg" alt="Art Gallery of NSW">
+            </div>
+            <div>
+                <h3>Black Tie Gala Evening</h3>
+                <p><strong>Saturday 27th June 2026</strong></p>
+                <p>Art Gallery of NSW</p>
+                <p>Join us for an elegant evening celebrating Phoebe's legacy while raising funds for under-supported charities and organisations.</p>
+            </div>
+        </div>
+
+        <!-- Donation Info -->
+        <div class="two-column-section">
+            <div>
+                <p>Join Team WWPD or support the foundation through donations at: <a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank">phoebe-dawson-foundation.grassrootz.com</a></p>
+            </div>
+            <div>
+            </div>
         </div>
 
         <!-- Past Events -->
-        <div class="event-section">
-            <h3>Past Events</h3>
-            <p>In early February 2025, 29 intrepid swimmers participated in the Cole Classic "the world's biggest ocean swim" under the WWPD (What Would Phoebe Do) banner. All participants wore custom yellow and white swimmers with WWPD branding. The previous day, 10 participants took part in the 10km Dee Why to Manly Sun Run.</p>
-            <p>These events brought together participants of all ages and helped build awareness of the foundation's mission to support causes close to Phoebe's heart.</p>
-            <img src="group.jpg" alt="Team WWPD" class="event-image">
+        <div class="two-column-section">
+            <div>
+                <h3>Past Events</h3>
+                <p>In early February 2025, 29 intrepid swimmers participated in the Cole Classic "the world's biggest ocean swim" under the WWPD (What Would Phoebe Do) banner. All participants wore custom yellow and white swimmers with WWPD branding. The previous day, 10 participants took part in the 10km Dee Why to Manly Sun Run.</p>
+                <p>These events brought together participants of all ages and helped build awareness of the foundation's mission to support causes close to Phoebe's heart.</p>
+            </div>
+            <div>
+                <img src="group.jpg" alt="Team WWPD">
+            </div>
         </div>
     </div>
 

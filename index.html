@@ -450,6 +450,23 @@
             box-shadow: 0 15px 40px rgba(246, 161, 82, 0.4);
         }
 
+        .view-more-button {
+            display: inline-block;
+            background: #f6a152;
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .view-more-button:hover {
+            background: #e8823e;
+            transform: translateY(-2px);
+        }
+
         .update-content p {
             font-size: 17px;
             line-height: 1.8;
@@ -1209,7 +1226,7 @@
     </nav>
 
     <!-- Header -->
-    <header>
+    <header style="display: none;">
     </header>
 
     <!-- Order Section -->
@@ -1382,14 +1399,46 @@
                 <p>Through community events, gala nights we empower communities to connect and come together to make positive impact in our lives and the lives of others.</p>
             </div>
             <div>
+                <img src="assets/phoebe.avif" alt="Phoebe Dawson">
             </div>
         </div>
 
-        <!-- Donate Button -->
-        <div class="donate-section">
-            <a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank" class="donate-button">Donate Now</a>
+        <!-- Commitment Section -->
+        <div class="two-column-section">
+            <div>
+                <img src="assets/commitment.avif" alt="Commitment - Team at the beach">
+            </div>
+            <div>
+                <h3>Commitment</h3>
+                <p>Our team bring Phoebe's passionate love for family and friends into the foundation and will work tirelessly to ensure we are committed to community, connection and giving back.</p>
+                <a href="#" onclick="return false;" class="view-more-button">Coming Soon</a>
+            </div>
         </div>
 
+        <!-- Community Section -->
+        <div class="two-column-section">
+            <div>
+                <h3>Community</h3>
+                <p>By partnering with local communities, we can achieve greater results in create conversations about rising awareness for organisations and raising much needs funds.</p>
+                <p>Find out what our upcoming events are or how you can contribute</p>
+                <a href="#" onclick="return false;" class="view-more-button">Coming Soon</a>
+            </div>
+            <div>
+                <img src="group.jpg" alt="Community - WWPD Team">
+            </div>
+        </div>
+
+        <!-- Impacts Section -->
+        <div class="two-column-section">
+            <div>
+                <img src="assets/impacts.avif" alt="Impacts - Boat on the water">
+            </div>
+            <div>
+                <h3>Impacts</h3>
+                <p>We believe in the power of community collaboration. This is how our fundraising has made an impact so far and helped others.</p>
+                <a href="#" onclick="return false;" class="view-more-button">Coming Soon</a>
+            </div>
+        </div>
 
         <!-- Final Message -->
         <div style="display: none; background: linear-gradient(135deg, #fff3e8 0%, #ffe4cd 100%); padding: 40px 60px; border-left: 5px solid #f6a152; margin: 0 60px;">
