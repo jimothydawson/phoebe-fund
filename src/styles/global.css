@@ -941,6 +941,12 @@ body {
     transform: translateY(-2px);
 }
 
+.signup-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
 /* ============ PARTNERS SECTION ============ */
 .partners-section {
     padding: 60px 40px;

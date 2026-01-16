@@ -95,3 +95,40 @@ After deploying, you can test by:
 - **In Airtable:** Go to your base and view the Orders table
 - **Admin Page:** Visit `/admin.html` on your deployed site
 - **Export:** Use Airtable's built-in CSV export feature
+
+---
+
+## 6. Create the Subscribers Table (Newsletter Signups)
+
+Create a new table called **Subscribers** in your Airtable base for newsletter signups.
+
+| Field Name | Field Type | Description |
+|------------|------------|-------------|
+| Email | Email | Subscriber email address |
+| Source | Single select | Where they signed up from |
+| Subscribed Date | Created time | Auto-generated timestamp |
+
+### Field Setup Details:
+
+**Source Field (Single Select):**
+- homepage
+- footer
+
+### Get the Table ID:
+
+1. After creating the table, go to https://airtable.com/api
+2. Select your base
+3. Look for "The id for Subscribers is tbl..." in the documentation
+4. Add to your `.env` file:
+
+```
+AIRTABLE_SUBSCRIBERS_TABLE=Subscribers
+```
+
+(Or use the table ID for reliability: `AIRTABLE_SUBSCRIBERS_TABLE=tblXXXXXXXXXX`)
+
+## Viewing Subscribers
+
+- **In Airtable:** Go to your base and view the Subscribers table
+- **Export to Email Tool:** Use Airtable's CSV export to import into Mailchimp, Mailerlite, etc.
+- **Automations:** Set up Airtable automations to get notified of new signups

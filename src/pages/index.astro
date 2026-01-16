@@ -145,19 +145,85 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="signup-content">
             <h2>Join the WWPD Family</h2>
             <p>Stay connected with our community. Get updates on events, fundraising progress, and ways you can help keep Phoebe's legacy alive.</p>
-            <form class="signup-form">
-                <input type="email" class="signup-input" placeholder="Enter your email address" required>
+            <form class="signup-form" id="homepage-signup-form">
+                <input type="email" name="email" class="signup-input" placeholder="Enter your email address" required>
                 <button type="submit" class="signup-btn">Subscribe</button>
             </form>
+            <p class="signup-message" id="homepage-signup-message"></p>
         </div>
     </section>
 
-    <!-- ============ PARTNERS ============ -->
-    <section class="partners-section">
-        <div class="partners-grid">
-            <img src="/assets/BearCottage-logo_0.svg" alt="Bear Cottage" class="partner-logo">
-            <img src="/assets/01_orange_logo_square.png" alt="PDF" class="partner-logo" style="height: 60px;">
-        </div>
-    </section>
 </BaseLayout>
+
+<style>
+    .signup-message {
+        margin-top: 15px;
+        font-size: 14px;
+        min-height: 20px;
+    }
+    
+    .signup-message.success {
+        color: #4ade80;
+    }
+    
+    .signup-message.error {
+        color: #f87171;
+    }
+</style>
+
+<script>
+    // Newsletter signup form handler
+    function setupSignupForm(formId, messageId, source) {
+        const form = document.getElementById(formId);
+        const message = document.getElementById(messageId);
+        
+        if (!form) return;
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const emailInput = form.querySelector('input[type="email"]');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const email = emailInput.value.trim();
+            
+            if (!email) return;
+            
+            // Disable form while submitting
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Subscribing...';
+            message.className = '';
+            message.textContent = '';
+            
+            try {
+                const response = await fetch('/.netlify/functions/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, source })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    message.className = 'success';
+                    message.textContent = 'Thanks for subscribing!';
+                    emailInput.value = '';
+                } else {
+                    throw new Error(data.error || 'Something went wrong');
+                }
+            } catch (error) {
+                message.className = 'error';
+                message.textContent = error.message;
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Subscribe';
+            }
+        });
+    }
+    
+    // Initialize both forms
+    document.addEventListener('DOMContentLoaded', () => {
+        setupSignupForm('homepage-signup-form', 'homepage-signup-message', 'homepage');
+        setupSignupForm('footer-signup-form', 'footer-signup-message', 'footer');
+    });
+</script>
 

@@ -7,6 +7,12 @@
         <div class="footer-brand">
             <img src="/assets/06_white_logo_horizontal.png" alt="Phoebe Dawson Foundation">
             <p>Carrying forward Phoebe's legacy of love, compassion, and community. In everything we do, we ask: What Would Phoebe Do?</p>
+            
+            <form class="footer-signup-form" id="footer-signup-form">
+                <input type="email" name="email" placeholder="Enter your email" required class="footer-email-input">
+                <button type="submit" class="footer-signup-btn">Subscribe</button>
+            </form>
+            <p class="footer-signup-message" id="footer-signup-message"></p>
         </div>
         <div class="footer-links">
             <h4>Foundation</h4>
@@ -20,16 +26,7 @@
             <h4>Get Involved</h4>
             <ul>
                 <li><a href="/events">Events</a></li>
-                <li><a href="/#signup">Newsletter</a></li>
                 <li><a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank">Donate</a></li>
-            </ul>
-        </div>
-        <div class="footer-links">
-            <h4>Connect</h4>
-            <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Contact Us</a></li>
             </ul>
         </div>
     </div>
@@ -85,6 +82,77 @@
             flex-direction: column;
             gap: 20px;
             padding: 25px 20px;
+        }
+    }
+    
+    .footer-signup-form {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        max-width: 400px;
+    }
+    
+    .footer-email-input {
+        flex: 1;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        background: rgba(255,255,255,0.1);
+        color: white;
+    }
+    
+    .footer-email-input::placeholder {
+        color: rgba(255,255,255,0.5);
+    }
+    
+    .footer-email-input:focus {
+        outline: 2px solid var(--primary);
+        background: rgba(255,255,255,0.15);
+    }
+    
+    .footer-signup-btn {
+        padding: 12px 24px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        white-space: nowrap;
+    }
+    
+    .footer-signup-btn:hover {
+        background: #e86d00;
+    }
+    
+    .footer-signup-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+    
+    .footer-signup-message {
+        margin-top: 10px;
+        font-size: 14px;
+        min-height: 20px;
+    }
+    
+    .footer-signup-message.success {
+        color: #4ade80;
+    }
+    
+    .footer-signup-message.error {
+        color: #f87171;
+    }
+    
+    @media (max-width: 480px) {
+        .footer-signup-form {
+            flex-direction: column;
+        }
+        
+        .footer-signup-btn {
+            width: 100%;
         }
     }
 </style>
