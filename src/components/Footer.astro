@@ -33,6 +33,13 @@
             </ul>
         </div>
     </div>
+    
+    <!-- ACF Trustee Section -->
+    <div class="footer-trustee">
+        <img src="/assets/ACF_Logo_Blue.svg" alt="Australian Communities Foundation" class="acf-logo">
+        <p>Phoebe Dawson Foundation is a Named Fund of Australian Communities Foundation which is the Trustee.</p>
+    </div>
+    
     <div class="footer-bottom">
         <p>&copy; 2024 Phoebe Dawson Foundation. All rights reserved. ABN: 27 811 061 900</p>
         <div class="social-links">
@@ -43,3 +50,41 @@
     </div>
 </footer>
 
+<style>
+    .footer-trustee {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 30px 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+    
+    .acf-logo {
+        height: 50px;
+        width: auto;
+        background: white;
+        padding: 8px 15px;
+        border-radius: 6px;
+    }
+    
+    .footer-trustee p {
+        font-size: 14px;
+        color: rgba(255,255,255,0.7);
+        margin: 0;
+        max-width: 500px;
+    }
+    
+    @media (max-width: 768px) {
+        .footer-trustee {
+            flex-direction: column;
+            gap: 20px;
+            padding: 25px 20px;
+        }
+    }
+</style>
