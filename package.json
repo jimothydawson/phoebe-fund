@@ -1,14 +1,18 @@
 {
   "name": "phoebe-fund",
+  "type": "module",
   "version": "1.0.0",
-  "description": "Phoebe Dawson Foundation website with Stripe integration",
+  "description": "Phoebe Dawson Foundation website",
   "scripts": {
-    "dev": "netlify dev"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
+    "astro": "^4.0.0",
+    "@astrojs/netlify": "^5.0.0",
     "stripe": "^14.0.0"
   },
-  "devDependencies": {},
   "engines": {
     "node": ">=18.0.0"
   }

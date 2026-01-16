@@ -1,0 +1,43 @@
+---
+// Mobile navigation component with hamburger menu
+---
+
+<header class="mobile-header">
+    <a href="/">
+        <img src="/assets/01_orange_logo_square.png" alt="Phoebe Dawson Foundation">
+    </a>
+    <div class="hamburger" id="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+    <a href="/#about">About Us</a>
+    <a href="/#mission">Our Mission</a>
+    <a href="/events">Events</a>
+    <a href="/contributions">Contributions</a>
+    <a href="/#stats">Funds Raised</a>
+    <a href="/#signup">Newsletter</a>
+    <a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank" class="mobile-cta">Donate Now</a>
+</nav>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburger?.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileNav?.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger?.classList.remove('active');
+            mobileNav?.classList.remove('active');
+        });
+    });
+</script>
+

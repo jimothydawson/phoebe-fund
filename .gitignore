@@ -49,3 +49,5 @@ netlify/functions/node_modules/
 
 # Local Netlify CLI
 .netlify-state.json
+.astro
+dist

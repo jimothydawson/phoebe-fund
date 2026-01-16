@@ -1,0 +1,42 @@
+---
+interface Props {
+    currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+---
+
+<aside class="sidebar">
+    <a href="/" class="sidebar-logo">
+        <img src="/assets/01_orange_logo_square.png" alt="Phoebe Dawson Foundation">
+    </a>
+    
+    <a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank" class="sidebar-cta">Donate Now</a>
+    
+    <ul class="sidebar-nav">
+        <li><a href="/#about" class={currentPath === '/' ? 'active' : ''}>About Us <span class="arrow">›</span></a></li>
+        <li><a href="/#mission">Our Mission</a></li>
+        <li><a href="/events" class={currentPath === '/events' ? 'active' : ''}>Events <span class="arrow">›</span></a></li>
+        <li><a href="/contributions" class={currentPath === '/contributions' ? 'active' : ''}>Contributions</a></li>
+        <li><a href="/#stats">Funds Raised</a></li>
+        <li><a href="/#signup">Newsletter</a></li>
+    </ul>
+    
+    <div class="sidebar-bottom">
+        <a href="/#signup" class="sidebar-newsletter">
+            Stay Informed ✉️
+        </a>
+        
+        <div class="sidebar-social">
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="Instagram">📷</a>
+            <a href="#" title="Email">✉️</a>
+        </div>
+        
+        <div class="sidebar-tagline">
+            <strong>WWPD</strong>
+            What Would Phoebe Do?
+        </div>
+    </div>
+</aside>
+
