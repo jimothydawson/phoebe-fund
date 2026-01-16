@@ -1,13 +1,14 @@
 /* ============ CSS VARIABLES ============ */
 :root {
-    --orange: #CE6D34;
-    --orange-dark: #B85A28;
-    --orange-light: #E8956A;
+    --orange: #F8A251;
+    --orange-dark: #e8923f;
+    --orange-light: #fab97a;
     --cream: #FDF8F4;
     --cream-dark: #F5EDE6;
-    --dark: #2C3E50;
-    --dark-light: #4A5568;
+    --dark: #231f20;
+    --dark-light: #3a3536;
     --white: #ffffff;
+    --black: #231f20;
     --sidebar-width: 220px;
 }
 
@@ -937,7 +938,7 @@ body {
 }
 
 .signup-btn:hover {
-    background: #1a252f;
+    background: #1a1718;
     transform: translateY(-2px);
 }
 
