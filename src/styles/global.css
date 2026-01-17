@@ -547,6 +547,23 @@ body {
     opacity: 0.8;
 }
 
+.alt-link {
+    display: inline-block;
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.alt-link:hover {
+    transform: translateX(5px);
+}
+
+.alt-content.orange-bg .alt-link {
+    color: white;
+}
+
 /* ============ STATS SECTION ============ */
 .stats-section {
     padding: 100px 40px;
@@ -641,6 +658,81 @@ body {
     color: var(--dark-light);
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+/* ============ CHARITIES INTRO ============ */
+.charities-intro {
+    padding: 100px 40px;
+    background: white;
+}
+
+.charities-intro-content {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.charities-intro-content h2 {
+    font-family: 'roca', serif;
+    font-size: 48px;
+    color: var(--dark);
+    margin-bottom: 25px;
+}
+
+.charities-intro-content p {
+    font-size: 18px;
+    color: var(--dark-light);
+    line-height: 1.8;
+}
+
+.charities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.charity-card {
+    background: var(--cream);
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.charity-logo {
+    height: 60px;
+    width: auto;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.charity-logo-text {
+    font-family: 'roca', serif;
+    font-size: 24px;
+    color: var(--orange);
+    margin-bottom: 20px;
+    padding: 15px 0;
+}
+
+.charity-card h3 {
+    font-family: 'roca', serif;
+    font-size: 24px;
+    color: var(--dark);
+    margin-bottom: 15px;
+}
+
+.charity-card p {
+    font-size: 15px;
+    color: var(--dark-light);
+    line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+    .charities-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
 }
 
 /* ============ STATS BANNER ============ */
@@ -1109,6 +1201,98 @@ body {
 .donate-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* ============ INTRO SECTION ============ */
+.intro-section {
+    padding: 80px 40px;
+    background: var(--cream);
+    text-align: center;
+}
+
+.intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-content h2 {
+    font-family: 'roca', serif;
+    font-size: 48px;
+    color: var(--dark);
+    margin-bottom: 25px;
+}
+
+.intro-content p {
+    font-size: 18px;
+    color: var(--dark-light);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* ============ GET INVOLVED SECTION ============ */
+.get-involved-section {
+    padding: 100px 40px;
+    background: white;
+}
+
+.involve-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 50px auto 40px;
+}
+
+.involve-card {
+    text-align: center;
+    padding: 40px 30px;
+    background: var(--cream);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.involve-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.involve-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.involve-card h3 {
+    font-family: 'roca', serif;
+    font-size: 24px;
+    color: var(--dark);
+    margin-bottom: 15px;
+}
+
+.involve-card p {
+    font-size: 15px;
+    color: var(--dark-light);
+    line-height: 1.7;
+}
+
+.involve-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+@media (max-width: 1024px) {
+    .involve-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .involve-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .intro-content h2 {
+        font-size: 36px;
+    }
 }
 
 /* ============ PAST EVENTS ============ */
