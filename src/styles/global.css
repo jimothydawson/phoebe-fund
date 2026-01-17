@@ -298,7 +298,7 @@ body {
 }
 
 .hero-title {
-    font-family: 'Caveat', cursive;
+    font-family: 'roca', serif;
     font-size: clamp(60px, 10vw, 120px);
     color: white;
     text-shadow: 2px 4px 20px rgba(0,0,0,0.3);
@@ -374,7 +374,7 @@ body {
 }
 
 .page-hero h1 {
-    font-family: 'Caveat', cursive;
+    font-family: 'roca', serif;
     font-size: clamp(48px, 8vw, 90px);
     color: white;
     text-shadow: 2px 4px 20px rgba(0,0,0,0.3);
@@ -391,7 +391,7 @@ body {
 
 /* ============ SECTION TITLES ============ */
 .section-title {
-    font-family: 'Caveat', cursive;
+    font-family: 'roca', serif;
     font-size: clamp(36px, 5vw, 56px);
     color: var(--orange);
     text-align: center;
@@ -512,7 +512,7 @@ body {
 }
 
 .alt-content h2 {
-    font-family: 'Caveat', cursive;
+    font-family: 'roca', serif;
     font-size: clamp(36px, 4vw, 52px);
     margin-bottom: 25px;
 }
@@ -806,7 +806,7 @@ body {
 }
 
 .full-image-content h2 {
-    font-family: 'Caveat', cursive;
+    font-family: 'roca', serif;
     font-size: 52px;
     margin-bottom: 20px;
 }
@@ -845,7 +845,7 @@ body {
 }
 
 .full-banner h2 {
-    font-family: 'Caveat', cursive;
+    font-family: 'roca', serif;
     font-size: 52px;
     color: white;
     max-width: 800px;
@@ -897,7 +897,7 @@ body {
 }
 
 .signup-content h2 {
-    font-family: 'Caveat', cursive;
+    font-family: 'roca', serif;
     font-size: 48px;
     margin-bottom: 20px;
 }
@@ -1026,7 +1026,7 @@ body {
 }
 
 .event-card h3 {
-    font-family: 'Caveat', cursive;
+    font-family: 'roca', serif;
     font-size: 32px;
     color: var(--dark);
     margin-bottom: 12px;
@@ -1077,7 +1077,7 @@ body {
 }
 
 .donate-cta h2 {
-    font-family: 'Caveat', cursive;
+    font-family: 'roca', serif;
     font-size: 48px;
     color: white;
     margin-bottom: 20px;
@@ -1127,7 +1127,7 @@ body {
 }
 
 .past-events-text h2 {
-    font-family: 'Caveat', cursive;
+    font-family: 'roca', serif;
     font-size: 48px;
     color: var(--orange);
     margin-bottom: 25px;
@@ -1216,7 +1216,7 @@ body {
 }
 
 .contribution-content h3 {
-    font-family: 'Caveat', cursive;
+    font-family: 'roca', serif;
     font-size: 38px;
     color: var(--orange);
     margin-bottom: 20px;
@@ -1266,7 +1266,7 @@ body {
 }
 
 .cta-section h2 {
-    font-family: 'Caveat', cursive;
+    font-family: 'roca', serif;
     font-size: 52px;
     color: var(--orange);
     margin-bottom: 20px;
