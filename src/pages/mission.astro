@@ -1,0 +1,312 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Our Mission - Phoebe Dawson Foundation" currentPath="/mission">
+    <!-- ============ PAGE HERO ============ -->
+    <section class="page-hero">
+        <img src="/assets/group.jpg" alt="Team WWPD">
+        <div class="page-hero-overlay">
+            <h1>Our Mission</h1>
+            <p class="page-hero-subtitle">Carrying Phoebe's Legacy Forward</p>
+        </div>
+    </section>
+
+    <!-- ============ MISSION STATEMENT ============ -->
+    <section class="mission-statement">
+        <div class="mission-statement-content">
+            <p class="lead">The Phoebe Dawson Foundation was established in late 2025 to honour the vibrant legacy of our "sunshine girl," Phoebe Dawson.</p>
+            <p>Phoebe was a woman of "big life energy" who lived with immense empathy, discovering her vocation for helping others while working in a remote village medical center in Kenya. Throughout her distinguished career as a nurse, she served on the frontlines of respiratory and oncology units, supported the COVID-19 vaccination effort, and helped patients access life-changing technologies.</p>
+            <p>Tragically lost in early 2024, Phoebe's spirit continues to radiate through the work of this Foundation. Our mission is to raise funds and awareness for charities and organisations that reflect Phoebe's passion for frontline health support, nursing excellence, and practical innovations in patient care.</p>
+        </div>
+    </section>
+
+    <!-- ============ CHARITIES SECTION ============ -->
+    <section class="mission-charities">
+        <h2 class="section-title">Charities We Support</h2>
+        <p class="section-subtitle">We are committed to supporting charities that align with Phoebe's values—providing vital respite, navigation, and rural access for families facing their most challenging times.</p>
+        
+        <div class="charities-grid">
+            <div class="charity-card">
+                <img src="/assets/BearCottage-logo_0.svg" alt="Bear Cottage" class="charity-logo">
+                <h3>Bear Cottage</h3>
+                <p>Sydney Children's Hospital's hospice in Manly, providing respite and end-of-life care for children with life-limiting conditions and their families.</p>
+                <span class="charity-location">📍 Manly, NSW</span>
+            </div>
+            <div class="charity-card">
+                <div class="charity-logo-text">Royal Far West</div>
+                <h3>Royal Far West</h3>
+                <p>Helping children in rural and remote Australia access vital developmental and mental health services—a cause close to Phoebe's heart given her rural upbringing.</p>
+                <span class="charity-location">📍 Manly, NSW</span>
+            </div>
+            <div class="charity-card">
+                <div class="charity-logo-text">Angel Flight</div>
+                <h3>Angel Flight</h3>
+                <p>Volunteer pilots transporting patients to medical treatment, ensuring distance is never a barrier to healthcare.</p>
+                <span class="charity-location">📍 Australia-wide</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ VALUES SECTION ============ -->
+    <section class="mission-values">
+        <h2 class="section-title">Our Values</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">👶</div>
+                <h3>Supporting Children</h3>
+                <p>Partnering with organisations that provide care and support for children in need, just as Phoebe would have wanted.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌾</div>
+                <h3>Rural Communities</h3>
+                <p>Bringing resources and awareness to underserved rural areas that often go unnoticed by larger foundations.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">👩‍⚕️</div>
+                <h3>Nursing Excellence</h3>
+                <p>Honouring Phoebe's career by supporting nurses and healthcare workers who dedicate their lives to caring for others.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Community Connection</h3>
+                <p>Building bonds through events that bring people together in the spirit of compassion and mutual support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WWPD SECTION ============ -->
+    <section class="mission-wwpd">
+        <div class="wwpd-content">
+            <h2>WWPD</h2>
+            <p class="wwpd-meaning">What Would Phoebe Do?</p>
+            <p>This question guides everything we do—celebrating life and making the world a better place. Through community events and gala nights, we empower communities to connect and come together to make positive impacts in our lives and the lives of others.</p>
+        </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="mission-cta">
+        <h2>Join the Journey</h2>
+        <p>Together, we can ensure that Phoebe's knack for brightening lives continues to make the world a better place for children and families in need.</p>
+        <a href="/events" class="cta-btn">View Our Events</a>
+    </section>
+</BaseLayout>
+
+<style>
+    .mission-statement {
+        padding: 100px 40px;
+        background: white;
+    }
+    
+    .mission-statement-content {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .mission-statement .lead {
+        font-size: 28px;
+        line-height: 1.6;
+        color: var(--dark);
+        margin-bottom: 30px;
+        font-family: 'roca', serif;
+    }
+    
+    .mission-statement p {
+        font-size: 18px;
+        line-height: 1.9;
+        color: var(--dark-light);
+        margin-bottom: 20px;
+    }
+    
+    .mission-charities {
+        padding: 100px 40px;
+        background: var(--cream);
+    }
+    
+    .mission-charities .charities-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        max-width: 1100px;
+        margin: 50px auto 0;
+    }
+    
+    .mission-charities .charity-card {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    }
+    
+    .mission-charities .charity-logo {
+        height: 60px;
+        width: auto;
+        margin-bottom: 20px;
+        object-fit: contain;
+    }
+    
+    .mission-charities .charity-logo-text {
+        font-family: 'roca', serif;
+        font-size: 24px;
+        color: var(--orange);
+        margin-bottom: 20px;
+        padding: 15px 0;
+    }
+    
+    .mission-charities .charity-card h3 {
+        font-family: 'roca', serif;
+        font-size: 24px;
+        color: var(--dark);
+        margin-bottom: 15px;
+    }
+    
+    .mission-charities .charity-card p {
+        font-size: 15px;
+        color: var(--dark-light);
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+    
+    .charity-location {
+        font-size: 13px;
+        color: var(--orange);
+    }
+    
+    .mission-values {
+        padding: 100px 40px;
+        background: white;
+    }
+    
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        max-width: 1200px;
+        margin: 50px auto 0;
+    }
+    
+    .value-card {
+        text-align: center;
+        padding: 40px 25px;
+    }
+    
+    .value-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+    
+    .value-card h3 {
+        font-family: 'roca', serif;
+        font-size: 22px;
+        color: var(--dark);
+        margin-bottom: 15px;
+    }
+    
+    .value-card p {
+        font-size: 15px;
+        color: var(--dark-light);
+        line-height: 1.7;
+    }
+    
+    .mission-wwpd {
+        padding: 120px 40px;
+        background: var(--orange);
+        text-align: center;
+    }
+    
+    .wwpd-content {
+        max-width: 700px;
+        margin: 0 auto;
+        color: white;
+    }
+    
+    .wwpd-content h2 {
+        font-family: 'roca', serif;
+        font-size: 72px;
+        margin-bottom: 10px;
+    }
+    
+    .wwpd-meaning {
+        font-size: 24px;
+        margin-bottom: 30px;
+        opacity: 0.9;
+    }
+    
+    .wwpd-content p:last-child {
+        font-size: 18px;
+        line-height: 1.8;
+        opacity: 0.9;
+    }
+    
+    .mission-cta {
+        padding: 100px 40px;
+        background: var(--dark);
+        text-align: center;
+        color: white;
+    }
+    
+    .mission-cta h2 {
+        font-family: 'roca', serif;
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+    
+    .mission-cta p {
+        font-size: 18px;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.8;
+    }
+    
+    .mission-cta .cta-btn {
+        display: inline-block;
+        background: var(--orange);
+        color: white;
+        text-decoration: none;
+        padding: 18px 45px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 0.3s ease;
+    }
+    
+    .mission-cta .cta-btn:hover {
+        transform: translateY(-3px);
+    }
+    
+    @media (max-width: 1024px) {
+        .values-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 900px) {
+        .mission-charities .charities-grid {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+        }
+        
+        .mission-statement .lead {
+            font-size: 24px;
+        }
+        
+        .wwpd-content h2 {
+            font-size: 56px;
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .values-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .mission-cta h2 {
+            font-size: 36px;
+        }
+    }
+</style>

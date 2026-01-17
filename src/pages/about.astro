@@ -1,0 +1,280 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About Phoebe - Phoebe Dawson Foundation" currentPath="/about">
+    <!-- ============ PAGE HERO ============ -->
+    <section class="page-hero">
+        <img src="/assets/phoebe.avif" alt="Phoebe Dawson">
+        <div class="page-hero-overlay">
+            <h1>About Phoebe</h1>
+            <p class="page-hero-subtitle">1992 – 2024</p>
+        </div>
+    </section>
+
+    <!-- ============ INTRO ============ -->
+    <section class="about-intro">
+        <div class="about-intro-content">
+            <p class="lead">Phoebe was our "sunshine girl" with a unique knack for brightening lives and putting a smile on faces. She would want us all to celebrate life and make the world a better place.</p>
+        </div>
+    </section>
+
+    <!-- ============ EARLY LIFE ============ -->
+    <section class="about-section">
+        <div class="about-content">
+            <h2>Early Life & Education</h2>
+            <p>Phoebe Barnet was born in Warren, Northwestern NSW, on 13th June 1992. Most of her childhood impressions came from living on a cattle station west of Longreach in Western Queensland. She was educated initially at Our Lady's School in Longreach. For her final primary school years, she attended Toowoomba Prep, where she made many lifelong friends; this set her up for high school at St Margaret's Anglican Girls School in Brisbane, where she became a prefect and Head Boarder.</p>
+            <p>Phoebe was a typical Gemini extrovert who thrived on new experiences, connecting with diverse people, and being the life of the party. She valued one-on-one relationships while making sure those on the edge felt included in the fun. Raised in a family that had a lot of fun together, that warmth translated into her friendships. Family and friends were vital to her; she loved traveling and visited many countries across six continents.</p>
+        </div>
+        <div class="about-image">
+            <img src="/assets/phoebe.avif" alt="Phoebe Dawson">
+        </div>
+    </section>
+
+    <!-- ============ VOCATION ============ -->
+    <section class="about-section reverse cream-bg">
+        <div class="about-content">
+            <h2>A Vocation Discovered</h2>
+            <p>Although accepted into Arts at the University of Queensland, she was uncertain of her future path. She decided to take a gap year after Year 12, working as a PA to a lady recovering from surgery for five months before heading to Kenya. There, she worked with a foundation building schools and supporting children in remote villages.</p>
+            <p>It was here that Phoebe found her vocation. While working in the village medical centre, she realized she could assist others through the trials of illness and accidents while brightening their day. She discovered a unique knack for relating to people and helping them move forward with their lives.</p>
+        </div>
+        <div class="about-image">
+            <img src="/assets/group.jpg" alt="Community">
+        </div>
+    </section>
+
+    <!-- ============ NURSING ============ -->
+    <section class="about-section">
+        <div class="about-content">
+            <h2>Nursing & Travel</h2>
+            <p>As a result of her experiences in Kenya, she changed her degree to Nursing at Sydney's University of Technology. After graduating, she worked in the Oncology ward at Royal Prince Alfred. She supported patients through challenging roads to recovery and, in some cases, through to their last days. Many remember her with great love and affection from this time, where she honed her skills in empathy and support.</p>
+            <p>Her yearning for travel eventually led her to broaden her horizons. She left for Florence, completed a course in Italian, and then worked for a family in Pescara. They passed on their knowledge and a love of food while she taught the children English conversation. She then joined her future husband, Timothy Dawson—an experienced sailor—in Majorca, Spain. They worked on yachts for the next three years, sailing, serving clients, taking part in Mediterranean races, and enjoying quaint restaurants along the way.</p>
+            <p>Phoebe loved baking and cooking; baking was her means of decompressing after a stressful day. Many a housemate, and later Tim, was woken by the clatter of pans and the aroma of freshly baked brownies or sourdough wafting up at some ungodly hour.</p>
+        </div>
+        <div class="about-image">
+            <img src="/assets/LittleManly.jpg" alt="Little Manly">
+        </div>
+    </section>
+
+    <!-- ============ PROFESSIONAL LEGACY ============ -->
+    <section class="about-section reverse orange-bg">
+        <div class="about-content">
+            <h2>Professional Legacy</h2>
+            <p>After returning to Sydney, she escorted patients recuperating from treatment in various Sydney hospitals back to regional homes in places like Parkes or Alice Springs—she found these excursions very rewarding. Her next role was in the Renal ward at North Shore Private Hospital before deciding to move closer to home in Manly.</p>
+            <p>She then began work at the South Steyne Medical Clinic (located next door to the Royal Far West) as a Clinic Nurse, which coincided with the COVID epidemic. It was while working at South Steyne that she learnt of the wonderful work done at Bear Cottage, a hospice providing bright and caring support to children with life-threatening issues and their families.</p>
+            <p>Her next career challenge was a marketing and support role at Medtronic, a health tech company. Because of her passion and rural background, Phoebe took on a portfolio of largely regionally based clients across North Queensland.</p>
+        </div>
+        <div class="about-image">
+            <img src="/assets/cole-classic-1.jpg" alt="Cole Classic">
+        </div>
+    </section>
+
+    <!-- ============ REMEMBERING PHOEBE ============ -->
+    <section class="about-quote">
+        <blockquote>
+            "Phoebe lived for her family, friends and community above all else."
+            <cite>— Tim Dawson</cite>
+        </blockquote>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="about-cta">
+        <h2>Continue Phoebe's Legacy</h2>
+        <p>Join us in celebrating life and making the world a better place—just as Phoebe would want us to.</p>
+        <div class="about-cta-buttons">
+            <a href="/events" class="cta-btn">Join an Event</a>
+            <a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank" class="cta-btn secondary">Donate Now</a>
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+    .about-intro {
+        padding: 80px 40px;
+        background: white;
+        text-align: center;
+    }
+    
+    .about-intro-content {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .about-intro .lead {
+        font-size: 24px;
+        line-height: 1.8;
+        color: var(--dark);
+        font-style: italic;
+    }
+    
+    .about-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 500px;
+    }
+    
+    .about-section.reverse {
+        direction: rtl;
+    }
+    
+    .about-section.reverse > * {
+        direction: ltr;
+    }
+    
+    .about-content {
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .about-section.cream-bg .about-content {
+        background: var(--cream);
+    }
+    
+    .about-section.orange-bg .about-content {
+        background: var(--orange);
+        color: white;
+    }
+    
+    .about-section.orange-bg .about-content h2 {
+        color: white;
+    }
+    
+    .about-section.orange-bg .about-content p {
+        color: rgba(255,255,255,0.9);
+    }
+    
+    .about-content h2 {
+        font-family: 'roca', serif;
+        font-size: 42px;
+        color: var(--dark);
+        margin-bottom: 25px;
+    }
+    
+    .about-content p {
+        font-size: 16px;
+        line-height: 1.9;
+        color: var(--dark-light);
+        margin-bottom: 20px;
+    }
+    
+    .about-image {
+        overflow: hidden;
+    }
+    
+    .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .about-quote {
+        padding: 100px 40px;
+        background: var(--cream);
+        text-align: center;
+    }
+    
+    .about-quote blockquote {
+        font-family: 'roca', serif;
+        font-size: 36px;
+        color: var(--dark);
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.5;
+    }
+    
+    .about-quote cite {
+        display: block;
+        margin-top: 25px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        color: var(--orange);
+    }
+    
+    .about-cta {
+        padding: 100px 40px;
+        background: var(--dark);
+        text-align: center;
+        color: white;
+    }
+    
+    .about-cta h2 {
+        font-family: 'roca', serif;
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+    
+    .about-cta p {
+        font-size: 18px;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto 40px;
+    }
+    
+    .about-cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .about-cta .cta-btn {
+        display: inline-block;
+        padding: 18px 40px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .about-cta .cta-btn:not(.secondary) {
+        background: var(--orange);
+        color: white;
+    }
+    
+    .about-cta .cta-btn.secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+    
+    .about-cta .cta-btn:hover {
+        transform: translateY(-3px);
+    }
+    
+    @media (max-width: 900px) {
+        .about-section {
+            grid-template-columns: 1fr;
+        }
+        
+        .about-section.reverse {
+            direction: ltr;
+        }
+        
+        .about-image {
+            height: 300px;
+            order: -1;
+        }
+        
+        .about-content {
+            padding: 50px 30px;
+        }
+        
+        .about-content h2 {
+            font-size: 32px;
+        }
+        
+        .about-quote blockquote {
+            font-size: 28px;
+        }
+        
+        .about-cta h2 {
+            font-size: 36px;
+        }
+    }
+</style>

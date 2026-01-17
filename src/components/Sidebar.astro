@@ -8,18 +8,17 @@ const { currentPath = '/' } = Astro.props;
 
 <aside class="sidebar">
     <a href="/" class="sidebar-logo">
-        <img src="/assets/01_orange_logo_square.png" alt="Phoebe Dawson Foundation">
+        <img src="/assets/06_white_logo_horizontal.png" alt="Phoebe Dawson Foundation">
     </a>
     
     <a href="https://phoebe-dawson-foundation.grassrootz.com/" target="_blank" class="sidebar-cta">Donate Now</a>
     
     <ul class="sidebar-nav">
-        <li><a href="/#about" class={currentPath === '/' ? 'active' : ''}>About Us <span class="arrow">›</span></a></li>
-        <li><a href="/#mission">Our Mission</a></li>
-        <li><a href="/events" class={currentPath === '/events' ? 'active' : ''}>Events <span class="arrow">›</span></a></li>
-        <li><a href="/contributions" class={currentPath === '/contributions' ? 'active' : ''}>Contributions</a></li>
-        <li><a href="/#stats">Funds Raised</a></li>
-        <li><a href="/#signup">Newsletter</a></li>
+        <li><a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a></li>
+        <li><a href="/about" class={currentPath === '/about' ? 'active' : ''}>About</a></li>
+        <li><a href="/mission" class={currentPath === '/mission' ? 'active' : ''}>Mission</a></li>
+        <li><a href="/impact" class={currentPath === '/impact' ? 'active' : ''}>Impact</a></li>
+        <li><a href="/events" class={currentPath === '/events' ? 'active' : ''}>Events</a></li>
     </ul>
     
     <div class="sidebar-bottom">
