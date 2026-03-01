@@ -2,6 +2,7 @@
 import Sidebar from '../components/Sidebar.astro';
 import MobileNav from '../components/MobileNav.astro';
 import Footer from '../components/Footer.astro';
+import FloatingCTA from '../components/FloatingCTA.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -28,8 +29,7 @@ const { title, currentPath = '/' } = Astro.props;
     <MobileNav />
     
     <div class="main-content">
-        <!-- Floating CTA -->
-        <a href="https://australiacf.fcsuite.com/erp/donate/create/fund?funit_id=2094" target="_blank" class="floating-cta">Donate Now</a>
+        <FloatingCTA />
         
         <slot />
         
