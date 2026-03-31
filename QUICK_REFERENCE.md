@@ -1,5 +1,7 @@
 # Quick Reference Guide
 
+Legacy note: this guide is for the earlier WWPD order system, not the current day-to-day Astro site. See `README.md` and `HANDOFF.md` first.
+
 ## 🚀 Common Commands
 
 ### Local Development

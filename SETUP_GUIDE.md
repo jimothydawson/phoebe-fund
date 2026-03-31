@@ -1,5 +1,7 @@
 # WWPD Budgie Smuggler Order System - Setup Guide
 
+Legacy note: this document covers the earlier WWPD order system, not the current day-to-day Astro site. See `README.md` and `HANDOFF.md` first.
+
 This guide will walk you through setting up the complete Stripe + Airtable integration for your WWPD budgie smuggler orders.
 
 ## 📋 Prerequisites

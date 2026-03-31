@@ -1,5 +1,7 @@
 # Deployment Checklist
 
+Legacy note: this checklist is for the earlier WWPD order system, not the current day-to-day Astro site. See `README.md` and `HANDOFF.md` first.
+
 Use this checklist to ensure everything is set up correctly before going live.
 
 ## ☐ Pre-Deployment Setup

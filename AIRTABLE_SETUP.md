@@ -1,5 +1,7 @@
 # Airtable Setup Instructions
 
+Legacy note: this document covers Airtable setup for the earlier WWPD order and newsletter flows, not the current day-to-day Astro site. See `README.md` and `HANDOFF.md` first.
+
 ## 1. Create a New Base
 
 1. Go to [Airtable](https://airtable.com)

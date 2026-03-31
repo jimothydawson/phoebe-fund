@@ -1,122 +1,77 @@
 # Phoebe Dawson Foundation Website
 
-Official website for the Phoebe Dawson Foundation - honoring the legacy of compassion, care, and community that Phoebe brought to everyone she met.
+This repository contains the public-facing Phoebe Dawson Foundation website.
 
-**What Would Phoebe Do?**
+The current site is an Astro project with mostly static content. It also still contains some older Netlify, Stripe, and Airtable code from the original WWPD swimwear ordering flow. There is also a separate Vercel/Supabase admin app that can update content in this repo, but that app is not part of this codebase.
 
-## 🌟 About
+## Start Here
 
-The Phoebe Dawson Foundation supports health, wellness, and community programs in memory of Phoebe Dawson. This website serves as:
-- Information hub about the foundation's mission and programs
-- Platform for upcoming events (Sun Run, Cole Classic, Annual Gala)
-- E-commerce system for WWPD budgie smuggler fundraising merchandise
+- Read [HANDOFF.md](./HANDOFF.md) for the maintainer walkthrough.
+- Use this README for the quick project snapshot.
+- Treat [SETUP_GUIDE.md](./SETUP_GUIDE.md), [QUICK_REFERENCE.md](./QUICK_REFERENCE.md), [DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md), and [AIRTABLE_SETUP.md](./AIRTABLE_SETUP.md) as legacy order-system documentation unless you are intentionally reviving that flow.
 
-## 🏊 WWPD Budgie Smuggler Orders
+## Current Stack
 
-This site includes a custom-built order system for WWPD (What Would Phoebe Do?) budgie smugglers:
-- Stripe integration for secure payment processing
-- Airtable database for order management
-- Simple admin interface to view and export orders
-- Friends & family can order their gear for Team Phoebe events
+- Astro 4
+- Shared layout/components in `src/`
+- Static assets in `public/assets/`
+- Netlify adapter/config still present in the repo
 
-## 🛠 Tech Stack
+## Quick Start
 
-- **Frontend:** HTML, CSS, JavaScript (vanilla)
-- **Hosting:** Netlify
-- **Payment Processing:** Stripe Checkout
-- **Database:** Airtable
-- **Backend:** Netlify Functions (serverless)
+Install dependencies:
 
-## 📁 Project Structure
-
-```
-├── index.html                          # Main website
-├── success.html                        # Order confirmation page
-├── cancel.html                         # Payment cancelled page
-├── admin.html                          # Orders admin panel
-├── netlify/
-│   └── functions/
-│       ├── create-checkout-session.js  # Creates Stripe checkout
-│       ├── stripe-webhook.js           # Handles payment completion
-│       └── get-orders.js               # Fetches orders from Airtable
-├── netlify.toml                        # Netlify configuration
-├── package.json                        # Dependencies
-├── .env                                # Environment variables (local)
-├── SETUP_GUIDE.md                      # Detailed setup instructions
-└── AIRTABLE_SETUP.md                   # Airtable configuration guide
+```bash
+npm install
 ```
 
-## 🚀 Setup & Deployment
+Run the Astro dev server:
 
-See [SETUP_GUIDE.md](./SETUP_GUIDE.md) for detailed setup instructions.
+```bash
+npm run dev
+```
 
-### Quick Start (Local Development)
+Build the site:
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Configure your `.env` file with Stripe and Airtable credentials
-4. Run locally with Netlify CLI:
-   ```bash
-   netlify dev
-   ```
-5. Visit http://localhost:8888
+```bash
+npm run build
+```
 
-### Deploy to Netlify
+If you ever need to work on the legacy Netlify functions locally, use `netlify dev` instead of `npm run dev`.
 
-1. Push to GitHub
-2. Connect repository to Netlify
-3. Add environment variables in Netlify dashboard
-4. Deploy!
+## Project Shape
 
-See full deployment steps in [SETUP_GUIDE.md](./SETUP_GUIDE.md).
+```text
+src/
+  components/    Shared navigation, footer, CTA components
+  layouts/       Shared page shell
+  pages/         Public site pages
+  styles/        Global styling
+public/assets/   Images and logos
+netlify/
+  functions/     Legacy Stripe/Airtable/serverless handlers
+admin.html       Legacy order admin page
+success.html     Legacy Stripe success page
+cancel.html      Legacy Stripe cancel page
+```
 
-## 🔑 Environment Variables
+## Current Content Model
 
-Required environment variables:
-- `STRIPE_PUBLISHABLE_KEY` - Stripe public API key
-- `STRIPE_SECRET_KEY` - Stripe secret API key
-- `STRIPE_WEBHOOK_SECRET` - Stripe webhook signing secret
-- `AIRTABLE_API_KEY` - Airtable API key
-- `AIRTABLE_BASE_ID` - Airtable base ID
-- `AIRTABLE_TABLE_NAME` - Airtable table name (default: "Orders")
-- `BUDGIE_PRICE` - Price in cents (default: 5000 = $50 AUD)
-- `CURRENCY` - Currency code (default: "aud")
+- Most page content is hardcoded directly inside the `.astro` page files.
+- Shared navigation, social links, and donate links live in `src/components/`.
+- Styling is mostly centralized in `src/styles/global.css`, with some page-level styles inline in each `.astro` file.
+- The newsletter signup backend exists, but the signup forms are currently commented out in the UI.
 
-## 📊 Managing Orders
+## External Systems
 
-- **View orders:** Visit `/admin.html` or check your Airtable base
-- **Export orders:** Use the "Export CSV" button on the admin page
-- **Order details:** Name, email, style (Men's/Women's), size (S/M/L), payment status
+- Separate Vercel/Supabase admin app: not in this repo, but it has access to this repo.
+- Australian Communities Foundation donation page: linked directly in multiple components/pages.
+- Legacy Airtable/Stripe integrations: only relevant if the old WWPD order flow is brought back.
 
-## 🎯 Features
+## Verification
 
-- ✅ Responsive design that works on all devices
-- ✅ Secure payment processing via Stripe
-- ✅ Automatic order saving to Airtable
-- ✅ Email confirmation sent by Stripe
-- ✅ Admin dashboard for order management
-- ✅ CSV export for bulk order submission
-- ✅ Test mode support for development
+The Astro production build currently succeeds with:
 
-## 🧪 Testing
-
-Use Stripe test cards in test mode:
-- **Success:** 4242 4242 4242 4242
-- **Decline:** 4000 0000 0000 0002
-
-## 📄 License
-
-Copyright © 2024 Phoebe Dawson Foundation. All rights reserved.
-
-## 💛 Our Sunshine Girl
-
-This website was built with love to continue Phoebe's legacy of compassion, service, and bringing people together. Every budgie smuggler sold helps support programs that reflect her radiant spirit.
-
-**What Would Phoebe Do?** - She'd make sure we all had matching budgies for the swim!
-
----
-
-For technical support or questions about the order system, please contact the development team or refer to [SETUP_GUIDE.md](./SETUP_GUIDE.md).
+```bash
+npm run build
+```

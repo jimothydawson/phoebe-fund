@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { DONATION_URL } from '../constants/site';
 ---
 
 <BaseLayout title="Events - Phoebe Dawson Foundation" currentPath="/events">
@@ -83,7 +84,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
         </div>
         <div class="involve-cta">
-            <a href="https://australiacf.fcsuite.com/erp/donate/create/fund?funit_id=2094" target="_blank" class="donate-btn">Donate Now</a>
+            <a href={DONATION_URL} target="_blank" class="donate-btn">Donate Now</a>
         </div>
     </section>
 
@@ -109,4 +110,3 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
     </section>
 </BaseLayout>
-

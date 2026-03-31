@@ -1,4 +1,6 @@
 ---
+import { DONATION_URL } from '../constants/site';
+
 interface Props {
     currentPath?: string;
 }
@@ -11,7 +13,7 @@ const { currentPath = '/' } = Astro.props;
         <img src="/assets/06_white_logo_horizontal.png" alt="Phoebe Dawson Foundation">
     </a>
     
-    <a href="https://australiacf.fcsuite.com/erp/donate/create/fund?funit_id=2094" target="_blank" class="sidebar-cta">Donate Now</a>
+    <a href={DONATION_URL} target="_blank" class="sidebar-cta">Donate Now</a>
     
     <ul class="sidebar-nav">
         <li><a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a></li>
@@ -40,4 +42,3 @@ const { currentPath = '/' } = Astro.props;
         </div>
     </div>
 </aside>
-
