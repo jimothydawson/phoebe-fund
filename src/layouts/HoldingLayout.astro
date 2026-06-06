@@ -1,0 +1,100 @@
+---
+const title = 'Phoebe Dawson Foundation';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #24302f;
+            --muted: #5d6c69;
+            --paper: #fffaf4;
+            --sun: #f4b233;
+            --line: rgba(36, 48, 47, 0.14);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            padding: 32px;
+            background:
+                linear-gradient(rgba(255, 250, 244, 0.9), rgba(255, 250, 244, 0.94)),
+                url('/assets/LittleManly.jpg') center / cover;
+            color: var(--ink);
+            font-family: 'DM Sans', system-ui, sans-serif;
+        }
+
+        main {
+            width: min(100%, 560px);
+            padding: 40px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: rgba(255, 250, 244, 0.92);
+            box-shadow: 0 24px 80px rgba(36, 48, 47, 0.16);
+            text-align: center;
+        }
+
+        img {
+            width: min(132px, 50vw);
+            height: auto;
+            margin-bottom: 32px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--ink);
+            font-size: clamp(2rem, 8vw, 3.75rem);
+            line-height: 0.95;
+            letter-spacing: 0;
+        }
+
+        p {
+            margin: 20px 0 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .accent {
+            width: 72px;
+            height: 4px;
+            margin: 28px auto 0;
+            border-radius: 999px;
+            background: var(--sun);
+        }
+
+        @media (max-width: 560px) {
+            body {
+                padding: 20px;
+            }
+
+            main {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <img src="/assets/01_orange_logo_square.png" alt="Phoebe Dawson Foundation">
+        <h1>Website coming soon</h1>
+        <div class="accent"></div>
+        <p>The Phoebe Dawson Foundation website is temporarily offline while we prepare an update.</p>
+    </main>
+</body>
+</html>
