@@ -70,6 +70,27 @@ const title = 'Phoebe Dawson Foundation';
             line-height: 1.6;
         }
 
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            margin-top: 28px;
+            padding: 0 22px;
+            border-radius: 6px;
+            background: var(--sun);
+            color: var(--ink);
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+            text-decoration: none;
+        }
+
+        a:focus-visible {
+            outline: 3px solid rgba(36, 48, 47, 0.35);
+            outline-offset: 3px;
+        }
+
         .accent {
             width: 72px;
             height: 4px;
@@ -95,6 +116,7 @@ const title = 'Phoebe Dawson Foundation';
         <h1>Website coming soon</h1>
         <div class="accent"></div>
         <p>The Phoebe Dawson Foundation website is temporarily offline while we prepare an update.</p>
+        <a href="https://phoebedawsonfounda.wixsite.com/pkbdfoundation">Visit the interim website</a>
     </main>
 </body>
 </html>
